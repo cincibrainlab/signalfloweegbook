@@ -1,0 +1,24 @@
+---
+title: Customization
+---
+
+## Assessing Cortical Excitability Using Resting-State EEG
+
+### Introduction
+
+Resting state EEG analysis can provide valuable insights into cortical excitability, which is often altered in neurodevelopmental disorders like Fragile X Syndrome (FXS). One powerful tool for assessing cortical excitability is the [Fitting Oscillations & One-Over F](https://fooof-tools.github.io/fooof/) (FOOOF)  algorithm, which can decompose the resting state EEG power spectrum into its underlying oscillatory and aperiodic components.
+
+In this analysis, we will use FOOOF to compare cortical excitability, as measured by the aperiodic component of the power spectrum, between a group of individuals with FXS and a matched control group. This will allow us to better understand the neurophysiological underpinnings of the altered sensory processing and hyperexcitability often observed in FXS.
+
+### Methods Overview
+1. [`p050_setup_environment`](): Set up the analysis environment
+2. [`p100_load_data_catalog`](): Retrieve file list and associated metadata
+
+
+- Preprocess the resting state EEG data, including filtering, artifact rejection, and channel selection.
+- Apply the FOOOF algorithm to the preprocessed, source localized data to extract the aperiodic and oscillatory components of the power spectrum for each participant.
+- Compare the aperiodic component between the FXS and control groups using appropriate statistical tests, such as t-tests or non-parametric tests, depending on the distribution of the data.
+
+
+
+

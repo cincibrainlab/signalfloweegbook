@@ -21,6 +21,7 @@ book:
     - content/setup.qmd
     - content/add-content.qmd
     - content/customizing.qmd
+    - content/resting_state.qmd    
     - content/rendering.qmd
     - content/rmarkdown.Rmd
     - content/code.qmd
