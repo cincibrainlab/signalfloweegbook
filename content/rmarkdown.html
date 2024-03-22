@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>SignalFlowEEG Book - 5&nbsp; R Markdown</title>
+<title>SignalFlowEEG Book - 6&nbsp; R Markdown</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -115,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/rmarkdown.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">R Markdown</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/rmarkdown.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">R Markdown</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -167,7 +167,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Executive Summary</span></a>
+ <span class="menu-text">Overview</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -190,26 +190,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../content/resting_state.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Customization</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../content/rendering.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Rendering</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Rendering</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../content/rmarkdown.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">R Markdown</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">R Markdown</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../content/code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Rendering with Code</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Rendering with Code</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../content/adding-refs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">References</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">References</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -228,9 +234,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#r-markdown" id="toc-r-markdown" class="nav-link active" data-scroll-target="#r-markdown"><span class="header-section-number">5.1</span> R Markdown</a></li>
-  <li><a href="#including-plots" id="toc-including-plots" class="nav-link" data-scroll-target="#including-plots"><span class="header-section-number">5.2</span> Including Plots</a></li>
-  <li><a href="#including-tables" id="toc-including-tables" class="nav-link" data-scroll-target="#including-tables"><span class="header-section-number">5.3</span> Including Tables</a></li>
+  <li><a href="#r-markdown" id="toc-r-markdown" class="nav-link active" data-scroll-target="#r-markdown"><span class="header-section-number">6.1</span> R Markdown</a></li>
+  <li><a href="#including-plots" id="toc-including-plots" class="nav-link" data-scroll-target="#including-plots"><span class="header-section-number">6.2</span> Including Plots</a></li>
+  <li><a href="#including-tables" id="toc-including-tables" class="nav-link" data-scroll-target="#including-tables"><span class="header-section-number">6.3</span> Including Tables</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/cincibrainlab/signalfloweegbook/edit/main/content/rmarkdown.Rmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/cincibrainlab/signalfloweegbook/blob/main/content/rmarkdown.Rmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/cincibrainlab/signalfloweegbook/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -239,7 +245,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">R Markdown</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">R Markdown</span></h1>
 </div>
 
 
@@ -257,8 +263,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>You can include R Markdown files in your project.</p>
-<section id="r-markdown" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="r-markdown"><span class="header-section-number">5.1</span> R Markdown</h2>
+<section id="r-markdown" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="r-markdown"><span class="header-section-number">6.1</span> R Markdown</h2>
 <p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
 <p>When you click the <strong>Knit</strong> button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</p>
 <div class="cell">
@@ -274,9 +280,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="including-plots" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="including-plots"><span class="header-section-number">5.2</span> Including Plots</h2>
-<p>You can also embed plots and reference them, like so <a href="#fig-pressure" class="quarto-xref">Figure&nbsp;<span>5.1</span></a>.</p>
+<section id="including-plots" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="including-plots"><span class="header-section-number">6.2</span> Including Plots</h2>
+<p>You can also embed plots and reference them, like so <a href="#fig-pressure" class="quarto-xref">Figure&nbsp;<span>6.1</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-pressure" class="quarto-figure quarto-figure-center quarto-float anchored">
@@ -285,7 +291,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <img src="rmarkdown_files/figure-html/fig-pressure-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pressure-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.1: Plot of pressure
+Figure&nbsp;6.1: Plot of pressure
 </figcaption>
 </figure>
 </div>
@@ -293,16 +299,16 @@ Figure&nbsp;5.1: Plot of pressure
 </div>
 <p>Note that the <code>echo = FALSE</code> parameter was added to the code chunk to prevent printing of the R code that generated the plot.</p>
 </section>
-<section id="including-tables" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="including-tables"><span class="header-section-number">5.3</span> Including Tables</h2>
-<p>You can also embed tables and reference them with <a href="#tbl-iris" class="quarto-xref">Table&nbsp;<span>5.1</span></a>.</p>
+<section id="including-tables" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="including-tables"><span class="header-section-number">6.3</span> Including Tables</h2>
+<p>You can also embed tables and reference them with <a href="#tbl-iris" class="quarto-xref">Table&nbsp;<span>6.1</span></a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(iris))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div id="tbl-iris" class="cell quarto-float anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-iris-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;5.1: Iris Data
+Table&nbsp;6.1: Iris Data
 </figcaption>
 <div aria-describedby="tbl-iris-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -783,12 +789,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../content/rendering.html" class="pagination-link" aria-label="Rendering">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Rendering</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Rendering</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../content/code.html" class="pagination-link" aria-label="Rendering with Code">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Rendering with Code</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Rendering with Code</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -4,9 +4,29 @@
     "href": "index.html",
     "title": "SignalFlowEEG Book",
     "section": "",
-    "text": "Executive Summary\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Integer commodo gravida justo consectetur condimentum. Proin eget felis non nunc tristique malesuada vel ut tortor. Vivamus lacinia aliquet lorem in congue. In hac habitasse platea dictumst. Etiam non felis iaculis, efficitur libero in, porta nunc. Sed sit amet nisi non justo scelerisque feugiat. Pellentesque porta consectetur sapien, porttitor iaculis ligula fermentum ac. Pellentesque fermentum elementum lacus non tempus. Aenean eu leo lobortis, vulputate mi at, varius sapien. In congue consectetur ultricies. Maecenas volutpat facilisis arcu, eget sodales tellus consequat nec. Integer ullamcorper ex nec leo aliquam tempus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc dui massa, facilisis at aliquet eu, malesuada vel neque. Donec fermentum elit eu tortor euismod, sed mollis lacus blandit.",
+    "text": "Overview",
     "crumbs": [
-      "Executive Summary"
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#overview-1",
+    "href": "index.html#overview-1",
+    "title": "SignalFlowEEG Book",
+    "section": "Overview",
+    "text": "Overview\nThis EEG signal analysis program is designed to provide a comprehensive and user-friendly solution for processing and analyzing EEG data in the context of clinical trials and studies. It leverages the power of open-source libraries, such as MNE, to offer a robust and flexible framework for clinical EEG analysis.",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#features",
+    "href": "index.html#features",
+    "title": "SignalFlowEEG Book",
+    "section": "Features",
+    "text": "Features\n\nData Preprocessing: Perform standard EEG preprocessing tasks, including filtering, artifact detection and removal, and channel selection.\nEvent Detection and Segmentation: Accurately identify and segment EEG events of interest, such as evoked responses, oscillatory activity, and sleep stages.\nSignal Analysis: Apply a wide range of signal processing techniques, including time-domain analysis, frequency-domain analysis, and time-frequency analysis.\nStatistical Analysis: Conduct statistical tests to assess the significance of EEG findings, including group comparisons and correlations with clinical outcomes.\nVisualization: Generate informative visualizations, such as topographic maps, time-series plots, and spectrograms, to facilitate data exploration and presentation.\nIntegration with Clinical Data: Seamlessly integrate EEG data with other clinical measures, such as cognitive assessments, behavioral observations, and medical records, to enable multimodal analysis.\nScalable and Automated Workflows: Develop and deploy scalable and automated workflows to handle large-scale clinical datasets efficiently.\nReproducibility and Collaboration: Ensure the reproducibility of analyses and enable collaborative work through the use of version control and documented workflows.",
+    "crumbs": [
+      "Overview"
     ]
   },
   {
@@ -80,103 +100,123 @@
     ]
   },
   {
+    "objectID": "content/resting_state.html",
+    "href": "content/resting_state.html",
+    "title": "4  Customization",
+    "section": "",
+    "text": "4.1 Assessing Cortical Excitability Using Resting-State EEG",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Customization</span>"
+    ]
+  },
+  {
+    "objectID": "content/resting_state.html#assessing-cortical-excitability-using-resting-state-eeg",
+    "href": "content/resting_state.html#assessing-cortical-excitability-using-resting-state-eeg",
+    "title": "4  Customization",
+    "section": "",
+    "text": "4.1.1 Introduction\nResting state EEG analysis can provide valuable insights into cortical excitability, which is often altered in neurodevelopmental disorders like Fragile X Syndrome (FXS). One powerful tool for assessing cortical excitability is the Fitting Oscillations & One-Over F (FOOOF) algorithm, which can decompose the resting state EEG power spectrum into its underlying oscillatory and aperiodic components.\nIn this analysis, we will use FOOOF to compare cortical excitability, as measured by the aperiodic component of the power spectrum, between a group of individuals with FXS and a matched control group. This will allow us to better understand the neurophysiological underpinnings of the altered sensory processing and hyperexcitability often observed in FXS.\n\n\n4.1.2 Methods Overview\n\np050_setup_environment: Set up the analysis environment\np100_load_data_catalog: Retrieve file list and associated metadata\n\n\nPreprocess the resting state EEG data, including filtering, artifact rejection, and channel selection.\nApply the FOOOF algorithm to the preprocessed, source localized data to extract the aperiodic and oscillatory components of the power spectrum for each participant.\nCompare the aperiodic component between the FXS and control groups using appropriate statistical tests, such as t-tests or non-parametric tests, depending on the distribution of the data.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Customization</span>"
+    ]
+  },
+  {
     "objectID": "content/rendering.html",
     "href": "content/rendering.html",
-    "title": "4  Rendering",
+    "title": "5  Rendering",
     "section": "",
-    "text": "4.1 Step 1. Make sure you have a recent RStudio\nHave you updated RStudio since about August 2022? No? Then update to a newer version of RStudio. In general, you want to keep RStudio updated and it is required to have a recent version to use Quarto.",
+    "text": "5.1 Step 1. Make sure you have a recent RStudio\nHave you updated RStudio since about August 2022? No? Then update to a newer version of RStudio. In general, you want to keep RStudio updated and it is required to have a recent version to use Quarto.",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Rendering</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Rendering</span>"
     ]
   },
   {
     "objectID": "content/rendering.html#step-2.-clone-and-create-rstudio-project",
     "href": "content/rendering.html#step-2.-clone-and-create-rstudio-project",
-    "title": "4  Rendering",
-    "section": "4.2 Step 2. Clone and create RStudio project",
-    "text": "4.2 Step 2. Clone and create RStudio project\nFirst, clone the repo onto your local computer. How? You can click File &gt; New Project and then select “Version Control”. Paste in the url of the repository. That will clone the repo on to your local computer. When you make changes, you will need to push those up.",
+    "title": "5  Rendering",
+    "section": "5.2 Step 2. Clone and create RStudio project",
+    "text": "5.2 Step 2. Clone and create RStudio project\nFirst, clone the repo onto your local computer. How? You can click File &gt; New Project and then select “Version Control”. Paste in the url of the repository. That will clone the repo on to your local computer. When you make changes, you will need to push those up.",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Rendering</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Rendering</span>"
     ]
   },
   {
     "objectID": "content/rendering.html#step-3.-render-within-rstudio",
     "href": "content/rendering.html#step-3.-render-within-rstudio",
-    "title": "4  Rendering",
-    "section": "4.3 Step 3. Render within RStudio",
-    "text": "4.3 Step 3. Render within RStudio\nRStudio will recognize that this is a Quarto project by the presence of the _quarto.yml file and will see the “Build” tab. Click the “Render website” button to render to the _site folder.\nPreviewing: You can either click index.html in the _site folder and specify “preview in browser” or set up RStudio to preview to the viewer panel. To do the latter, go to Tools &gt; Global Options &gt; R Markdown. Then select “Show output preview in: Viewer panel”.",
+    "title": "5  Rendering",
+    "section": "5.3 Step 3. Render within RStudio",
+    "text": "5.3 Step 3. Render within RStudio\nRStudio will recognize that this is a Quarto project by the presence of the _quarto.yml file and will see the “Build” tab. Click the “Render website” button to render to the _site folder.\nPreviewing: You can either click index.html in the _site folder and specify “preview in browser” or set up RStudio to preview to the viewer panel. To do the latter, go to Tools &gt; Global Options &gt; R Markdown. Then select “Show output preview in: Viewer panel”.",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Rendering</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Rendering</span>"
     ]
   },
   {
     "objectID": "content/rmarkdown.html",
     "href": "content/rmarkdown.html",
-    "title": "5  R Markdown",
+    "title": "6  R Markdown",
     "section": "",
-    "text": "5.1 R Markdown\nThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.\nWhen you click the Knit button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:\nsummary(cars)\n\n     speed           dist       \n Min.   : 4.0   Min.   :  2.00  \n 1st Qu.:12.0   1st Qu.: 26.00  \n Median :15.0   Median : 36.00  \n Mean   :15.4   Mean   : 42.98  \n 3rd Qu.:19.0   3rd Qu.: 56.00  \n Max.   :25.0   Max.   :120.00",
+    "text": "6.1 R Markdown\nThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.\nWhen you click the Knit button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:\nsummary(cars)\n\n     speed           dist       \n Min.   : 4.0   Min.   :  2.00  \n 1st Qu.:12.0   1st Qu.: 26.00  \n Median :15.0   Median : 36.00  \n Mean   :15.4   Mean   : 42.98  \n 3rd Qu.:19.0   3rd Qu.: 56.00  \n Max.   :25.0   Max.   :120.00",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>R Markdown</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>R Markdown</span>"
     ]
   },
   {
     "objectID": "content/rmarkdown.html#including-plots",
     "href": "content/rmarkdown.html#including-plots",
-    "title": "5  R Markdown",
-    "section": "5.2 Including Plots",
-    "text": "5.2 Including Plots\nYou can also embed plots and reference them, like so Figure 5.1.\n\n\n\n\n\n\n\n\nFigure 5.1: Plot of pressure\n\n\n\n\n\nNote that the echo = FALSE parameter was added to the code chunk to prevent printing of the R code that generated the plot.",
+    "title": "6  R Markdown",
+    "section": "6.2 Including Plots",
+    "text": "6.2 Including Plots\nYou can also embed plots and reference them, like so Figure 6.1.\n\n\n\n\n\n\n\n\nFigure 6.1: Plot of pressure\n\n\n\n\n\nNote that the echo = FALSE parameter was added to the code chunk to prevent printing of the R code that generated the plot.",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>R Markdown</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>R Markdown</span>"
     ]
   },
   {
     "objectID": "content/rmarkdown.html#including-tables",
     "href": "content/rmarkdown.html#including-tables",
-    "title": "5  R Markdown",
-    "section": "5.3 Including Tables",
-    "text": "5.3 Including Tables\nYou can also embed tables and reference them with Table 5.1.\n\nlibrary(knitr)\nkable(head(iris))\n\n\n\nTable 5.1: Iris Data\n\n\n\n\n\n\nSepal.Length\nSepal.Width\nPetal.Length\nPetal.Width\nSpecies\n\n\n\n\n5.1\n3.5\n1.4\n0.2\nsetosa\n\n\n4.9\n3.0\n1.4\n0.2\nsetosa\n\n\n4.7\n3.2\n1.3\n0.2\nsetosa\n\n\n4.6\n3.1\n1.5\n0.2\nsetosa\n\n\n5.0\n3.6\n1.4\n0.2\nsetosa\n\n\n5.4\n3.9\n1.7\n0.4\nsetosa",
+    "title": "6  R Markdown",
+    "section": "6.3 Including Tables",
+    "text": "6.3 Including Tables\nYou can also embed tables and reference them with Table 6.1.\n\nlibrary(knitr)\nkable(head(iris))\n\n\n\nTable 6.1: Iris Data\n\n\n\n\n\n\nSepal.Length\nSepal.Width\nPetal.Length\nPetal.Width\nSpecies\n\n\n\n\n5.1\n3.5\n1.4\n0.2\nsetosa\n\n\n4.9\n3.0\n1.4\n0.2\nsetosa\n\n\n4.7\n3.2\n1.3\n0.2\nsetosa\n\n\n4.6\n3.1\n1.5\n0.2\nsetosa\n\n\n5.0\n3.6\n1.4\n0.2\nsetosa\n\n\n5.4\n3.9\n1.7\n0.4\nsetosa",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>R Markdown</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>R Markdown</span>"
     ]
   },
   {
     "objectID": "content/code.html",
     "href": "content/code.html",
-    "title": "6  Rendering with Code",
+    "title": "7  Rendering with Code",
     "section": "",
-    "text": "6.1 Modify the GitHub Action\nYou will need to change the GitHub Action in .github/workflows to install these and any needed packages in order for GitHub to be able to render your webpage. The GitHub Action install R since I used that in code.qmd. If you use Python or Julia instead, then you will need to update the GitHub Action to install those.\nIf getting the GitHub Action to work is too much hassle (and that definitely happens), you can alway render locally and publish to the gh-pages branch. If you do this, make sure to delete or rename the GitHub Action to something like\nso GitHub does not keep trying to run it. Nothing bad will happen if you don’t do this, but if you are not using the action (because it keeps failing), then you don’t need GitHub to run it.",
+    "text": "7.1 Modify the GitHub Action\nYou will need to change the GitHub Action in .github/workflows to install these and any needed packages in order for GitHub to be able to render your webpage. The GitHub Action install R since I used that in code.qmd. If you use Python or Julia instead, then you will need to update the GitHub Action to install those.\nIf getting the GitHub Action to work is too much hassle (and that definitely happens), you can alway render locally and publish to the gh-pages branch. If you do this, make sure to delete or rename the GitHub Action to something like\nso GitHub does not keep trying to run it. Nothing bad will happen if you don’t do this, but if you are not using the action (because it keeps failing), then you don’t need GitHub to run it.",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Rendering with Code</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Rendering with Code</span>"
     ]
   },
   {
     "objectID": "content/code.html#modify-the-github-action",
     "href": "content/code.html#modify-the-github-action",
-    "title": "6  Rendering with Code",
+    "title": "7  Rendering with Code",
     "section": "",
     "text": "render-and-publish.old_yml",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Rendering with Code</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Rendering with Code</span>"
     ]
   },
   {
     "objectID": "content/code.html#render-locally-and-publish-to-gh-pages-branch",
     "href": "content/code.html#render-locally-and-publish-to-gh-pages-branch",
-    "title": "6  Rendering with Code",
-    "section": "6.2 Render locally and publish to gh-pages branch",
-    "text": "6.2 Render locally and publish to gh-pages branch\nTo render locally and push up to the gh-pages branch, open a terminal window and then cd to the directory with the Quarto project. Type this in the terminal:\nquarto render gh-pages",
+    "title": "7  Rendering with Code",
+    "section": "7.2 Render locally and publish to gh-pages branch",
+    "text": "7.2 Render locally and publish to gh-pages branch\nTo render locally and push up to the gh-pages branch, open a terminal window and then cd to the directory with the Quarto project. Type this in the terminal:\nquarto render gh-pages",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Rendering with Code</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Rendering with Code</span>"
     ]
   },
   {
     "objectID": "content/adding-refs.html",
     "href": "content/adding-refs.html",
-    "title": "7  References",
+    "title": "8  References",
     "section": "",
     "text": "Quarto has powerful references functionality. You can easily insert citations from Zotero libraries that you maintain in the cloud (on Zotero). This allows the whole team to update the library and you can sync up to that library. Read about this on the Quarto documentation on citations. Google youtube videos on this also to see it in action.\nAdd a .bib file in to your project or add a linked Zotero library via RStudio in Visual mode with Tools &gt; Project Options… &gt; R Markdown &gt; select custom libraries from the Zotero dropdown.\nThe you can type @ and you will see a dropdown of the references in your libraries. You can then select the ones to add. If you don’t see the one you need, you can paste in the DOI and it will be added to your references file (with all the info). The references will be added to your references section of your book automatically.\nSee the references.qmd file for how to include the references.\n\n@ansley1981 will produce Ansley and Davis (1981)\n[@ansley1981] will produce (Ansley and Davis 1981).\n\n\n\n\n\nAnsley, H. L. H., and C. D. Davis. 1981. “Migration and Standing Stock of Fishes Associated with Artificial and Natural Reefs on Georgia’s Outer Continental Shelf.” Brunswick, Georgia, USA.",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>References</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>References</span>"
     ]
   },
   {

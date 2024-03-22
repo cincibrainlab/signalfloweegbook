@@ -2,46 +2,50 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://cincibrainlab.github.io/signalfloweegbook/index.html</loc>
-    <lastmod>2024-03-22T14:28:21.687Z</lastmod>
+    <lastmod>2024-03-22T16:05:56.210Z</lastmod>
   </url>
   <url>
     <loc>https://cincibrainlab.github.io/signalfloweegbook/content/setup.html</loc>
-    <lastmod>2024-03-22T14:28:21.679Z</lastmod>
+    <lastmod>2024-03-22T16:05:56.202Z</lastmod>
   </url>
   <url>
     <loc>https://cincibrainlab.github.io/signalfloweegbook/content/add-content.html</loc>
-    <lastmod>2024-03-22T14:28:21.679Z</lastmod>
+    <lastmod>2024-03-22T16:05:56.202Z</lastmod>
   </url>
   <url>
     <loc>https://cincibrainlab.github.io/signalfloweegbook/content/customizing.html</loc>
-    <lastmod>2024-03-22T14:28:21.679Z</lastmod>
+    <lastmod>2024-03-22T16:05:56.202Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cincibrainlab.github.io/signalfloweegbook/content/resting_state.html</loc>
+    <lastmod>2024-03-22T16:05:56.202Z</lastmod>
   </url>
   <url>
     <loc>https://cincibrainlab.github.io/signalfloweegbook/content/rendering.html</loc>
-    <lastmod>2024-03-22T14:28:21.679Z</lastmod>
+    <lastmod>2024-03-22T16:05:56.202Z</lastmod>
   </url>
   <url>
     <loc>https://cincibrainlab.github.io/signalfloweegbook/content/rmarkdown.html</loc>
-    <lastmod>2024-03-22T14:28:21.679Z</lastmod>
+    <lastmod>2024-03-22T16:05:56.202Z</lastmod>
   </url>
   <url>
     <loc>https://cincibrainlab.github.io/signalfloweegbook/content/code.html</loc>
-    <lastmod>2024-03-22T14:28:21.679Z</lastmod>
+    <lastmod>2024-03-22T16:05:56.202Z</lastmod>
   </url>
   <url>
     <loc>https://cincibrainlab.github.io/signalfloweegbook/content/adding-refs.html</loc>
-    <lastmod>2024-03-22T14:28:21.679Z</lastmod>
+    <lastmod>2024-03-22T16:05:56.202Z</lastmod>
   </url>
   <url>
     <loc>https://cincibrainlab.github.io/signalfloweegbook/content/references.html</loc>
-    <lastmod>2024-03-22T14:28:21.679Z</lastmod>
+    <lastmod>2024-03-22T16:05:56.202Z</lastmod>
   </url>
   <url>
     <loc>https://cincibrainlab.github.io/signalfloweegbook/SignalFlowEEG-Book.pdf</loc>
-    <lastmod>2024-03-22T14:33:31.598Z</lastmod>
+    <lastmod>2024-03-22T16:10:41.721Z</lastmod>
   </url>
   <url>
     <loc>https://cincibrainlab.github.io/signalfloweegbook/SignalFlowEEG-Book.docx</loc>
-    <lastmod>2024-03-22T14:33:32.770Z</lastmod>
+    <lastmod>2024-03-22T16:10:42.909Z</lastmod>
   </url>
 </urlset>

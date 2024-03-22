@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>SignalFlowEEG Book - 6&nbsp; Rendering with Code</title>
+<title>SignalFlowEEG Book - 7&nbsp; Rendering with Code</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -115,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/code.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Rendering with Code</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/code.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Rendering with Code</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -167,7 +167,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Executive Summary</span></a>
+ <span class="menu-text">Overview</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -190,26 +190,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../content/resting_state.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Customization</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../content/rendering.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Rendering</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Rendering</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../content/rmarkdown.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">R Markdown</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">R Markdown</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../content/code.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Rendering with Code</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Rendering with Code</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../content/adding-refs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">References</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">References</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -228,8 +234,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#modify-the-github-action" id="toc-modify-the-github-action" class="nav-link active" data-scroll-target="#modify-the-github-action"><span class="header-section-number">6.1</span> Modify the GitHub Action</a></li>
-  <li><a href="#render-locally-and-publish-to-gh-pages-branch" id="toc-render-locally-and-publish-to-gh-pages-branch" class="nav-link" data-scroll-target="#render-locally-and-publish-to-gh-pages-branch"><span class="header-section-number">6.2</span> Render locally and publish to gh-pages branch</a></li>
+  <li><a href="#modify-the-github-action" id="toc-modify-the-github-action" class="nav-link active" data-scroll-target="#modify-the-github-action"><span class="header-section-number">7.1</span> Modify the GitHub Action</a></li>
+  <li><a href="#render-locally-and-publish-to-gh-pages-branch" id="toc-render-locally-and-publish-to-gh-pages-branch" class="nav-link" data-scroll-target="#render-locally-and-publish-to-gh-pages-branch"><span class="header-section-number">7.2</span> Render locally and publish to gh-pages branch</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/cincibrainlab/signalfloweegbook/edit/main/content/code.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/cincibrainlab/signalfloweegbook/blob/main/content/code.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/cincibrainlab/signalfloweegbook/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -238,7 +244,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Rendering with Code</span></h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Rendering with Code</span></h1>
 </div>
 
 
@@ -270,15 +276,15 @@ Coefficients:
       1.056        1.326  </code></pre>
 </div>
 </div>
-<section id="modify-the-github-action" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="modify-the-github-action"><span class="header-section-number">6.1</span> Modify the GitHub Action</h2>
+<section id="modify-the-github-action" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="modify-the-github-action"><span class="header-section-number">7.1</span> Modify the GitHub Action</h2>
 <p>You will need to change the GitHub Action in <code>.github/workflows</code> to install these and any needed packages in order for GitHub to be able to render your webpage. The GitHub Action install R since I used that in <code>code.qmd</code>. If you use Python or Julia instead, then you will need to update the GitHub Action to install those.</p>
 <p>If getting the GitHub Action to work is too much hassle (and that definitely happens), you can alway render locally and publish to the <code>gh-pages</code> branch. If you do this, make sure to delete or rename the GitHub Action to something like</p>
 <pre><code>render-and-publish.old_yml</code></pre>
 <p>so GitHub does not keep trying to run it. Nothing bad will happen if you don’t do this, but if you are not using the action (because it keeps failing), then you don’t need GitHub to run it.</p>
 </section>
-<section id="render-locally-and-publish-to-gh-pages-branch" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="render-locally-and-publish-to-gh-pages-branch"><span class="header-section-number">6.2</span> Render locally and publish to gh-pages branch</h2>
+<section id="render-locally-and-publish-to-gh-pages-branch" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="render-locally-and-publish-to-gh-pages-branch"><span class="header-section-number">7.2</span> Render locally and publish to gh-pages branch</h2>
 <p>To render locally and push up to the <code>gh-pages</code> branch, open a terminal window and then <code>cd</code> to the directory with the Quarto project. Type this in the terminal:</p>
 <pre><code>quarto render gh-pages</code></pre>
 
@@ -698,12 +704,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../content/rmarkdown.html" class="pagination-link" aria-label="R Markdown">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">R Markdown</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">R Markdown</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../content/adding-refs.html" class="pagination-link" aria-label="References">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">References</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">References</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
