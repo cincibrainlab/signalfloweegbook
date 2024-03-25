@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.551">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>SignalFlowEEG Book - 3&nbsp; Catalog Class</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../content/setup_docker.html" rel="next">
+<link href="../content/p050_setup_environment.html" rel="prev">
+<link href="../assets/favicon.ico" rel="icon">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/p010_project_overview.html">CORTICAL EXCITABILITY</a></li><li class="breadcrumb-item"><a href="../content/p100_load_catalog.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Catalog Class</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="https://raw.githubusercontent.com/nmfs-opensci/assets/main/logo/sflogo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">SignalFlowEEG Book</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://cincibrainlab.github.io/" title="CinciBrain Lab" class="quarto-navigation-tool px-1" aria-label="CinciBrain Lab"><i class="bi bi-globe"></i></a>
+    <a href="https://github.com/cincibrainlab/signalfloweegbook" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../SignalFlowEEG-Book.pdf">
+              <i class="bi bi-bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../SignalFlowEEG-Book.docx">
+              <i class="bi bi-bi-file-word pe-1"></i>
+            Download Docx
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">CORTICAL EXCITABILITY</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/p010_project_overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Project Overview</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/p050_setup_environment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Setting up the Analysis Environment</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/p100_load_catalog.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Catalog Class</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/setup_docker.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Reproducible Environment with Docker</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+ <span class="menu-text">MANUSCRIPT REPOSITORY</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/p200_manuscript_repository.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Manuscript Repository</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+ <span class="menu-text">ODDS AND ENDS</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/odds_and_ends.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Odds and Ends</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#organizing-data-with-catalog-class" id="toc-organizing-data-with-catalog-class" class="nav-link active" data-scroll-target="#organizing-data-with-catalog-class"><span class="header-section-number">3.1</span> Organizing Data with Catalog Class</a></li>
+  <li><a href="#an-example-catalog-file" id="toc-an-example-catalog-file" class="nav-link" data-scroll-target="#an-example-catalog-file"><span class="header-section-number">3.2</span> An Example Catalog File</a>
+  <ul class="collapse">
+  <li><a href="#what-is-the-yaml-text-format" id="toc-what-is-the-yaml-text-format" class="nav-link" data-scroll-target="#what-is-the-yaml-text-format"><span class="header-section-number">3.2.1</span> What is the YAML text format?</a></li>
+  </ul></li>
+  <li><a href="#how-to-use-the-catalog-class" id="toc-how-to-use-the-catalog-class" class="nav-link" data-scroll-target="#how-to-use-the-catalog-class"><span class="header-section-number">3.3</span> How to use the Catalog Class</a></li>
+  <li><a href="#usefulness-of-abstracting-the-data-location" id="toc-usefulness-of-abstracting-the-data-location" class="nav-link" data-scroll-target="#usefulness-of-abstracting-the-data-location"><span class="header-section-number">3.4</span> Usefulness of Abstracting the Data Location</a></li>
+  <li><a href="#creating-a-catalog-file" id="toc-creating-a-catalog-file" class="nav-link" data-scroll-target="#creating-a-catalog-file"><span class="header-section-number">3.5</span> Creating a Catalog File</a></li>
+  <li><a href="#loading-the-catalog-file" id="toc-loading-the-catalog-file" class="nav-link" data-scroll-target="#loading-the-catalog-file"><span class="header-section-number">3.6</span> Loading the Catalog File</a></li>
+  <li><a href="#exploring-the-catalog" id="toc-exploring-the-catalog" class="nav-link" data-scroll-target="#exploring-the-catalog"><span class="header-section-number">3.7</span> Exploring the Catalog</a></li>
+  <li><a href="#specific-method-details" id="toc-specific-method-details" class="nav-link" data-scroll-target="#specific-method-details"><span class="header-section-number">3.8</span> Specific Method Details</a>
+  <ul class="collapse">
+  <li><a href="#retrieving-dataset-locations" id="toc-retrieving-dataset-locations" class="nav-link" data-scroll-target="#retrieving-dataset-locations"><span class="header-section-number">3.8.1</span> Retrieving Dataset Locations</a></li>
+  <li><a href="#determining-dataset-types" id="toc-determining-dataset-types" class="nav-link" data-scroll-target="#determining-dataset-types"><span class="header-section-number">3.8.2</span> Determining Dataset Types</a></li>
+  <li><a href="#checking-for-associated-fdt-files" id="toc-checking-for-associated-fdt-files" class="nav-link" data-scroll-target="#checking-for-associated-fdt-files"><span class="header-section-number">3.8.3</span> Checking for Associated FDT Files</a></li>
+  <li><a href="#retrieving-file-lists" id="toc-retrieving-file-lists" class="nav-link" data-scroll-target="#retrieving-file-lists"><span class="header-section-number">3.8.4</span> Retrieving File Lists</a></li>
+  <li><a href="#summarizing-file-lists" id="toc-summarizing-file-lists" class="nav-link" data-scroll-target="#summarizing-file-lists"><span class="header-section-number">3.8.5</span> Summarizing File Lists</a></li>
+  <li><a href="#creating-a-yaml-template" id="toc-creating-a-yaml-template" class="nav-link" data-scroll-target="#creating-a-yaml-template"><span class="header-section-number">3.8.6</span> Creating a YAML Template</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">3.9</span> Conclusion</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/cincibrainlab/signalfloweegbook/edit/main/content/p100_load_catalog.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/cincibrainlab/signalfloweegbook/blob/main/content/p100_load_catalog.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/cincibrainlab/signalfloweegbook/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/p010_project_overview.html">CORTICAL EXCITABILITY</a></li><li class="breadcrumb-item"><a href="../content/p100_load_catalog.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Catalog Class</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Catalog Class</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="organizing-data-with-catalog-class" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="organizing-data-with-catalog-class"><span class="header-section-number">3.1</span> Organizing Data with Catalog Class</h2>
+<p>Effective dataset organization is critical to maintain a productive analysis pipeline. Imagine if you could call specific data files or data directories from a function call anywhere in your analysis code? What if you could store this “catalog” in a simple, human-editable file, which can be accessed from a local folder or retrieved from a web link, without a complex database systems.</p>
+<p>The <code>Catalog</code> class in the <code>signalfloweeg</code> module does exactly this!</p>
+</section>
+<section id="an-example-catalog-file" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="an-example-catalog-file"><span class="header-section-number">3.2</span> An Example Catalog File</h2>
+<p>Let’s look at an example of a Catalog file named <code>example_datasets.yaml</code> which can be edited in a text editor:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Catalog Name: Example</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Catalog Date: 1/3/2024</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Comments: assr = auditory steady state recording</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Template: "dataset label": "path" or "file"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">demo_rest_state</span><span class="kw">:</span><span class="at"> </span><span class="st">"/srv/RAWDATA/exampledata/Resting/128_Rest_EyesOpen_D1004.set"</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">demo_auditory_chirp</span><span class="kw">:</span><span class="at"> </span><span class="st">"/srv/RAWDATA/exampledata/Chirp/128_Chirp_D0657_DIN8.set"</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">demo_auditory_assr</span><span class="kw">:</span><span class="at"> </span><span class="st">"/srv/RAWDATA/exampledata/SteadyState/"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can make as many catalog files as you need - maybe one for each project or server. You could also use a single catalog file to store different stages or versions of a project.</p>
+<section id="what-is-the-yaml-text-format" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="what-is-the-yaml-text-format"><span class="header-section-number">3.2.1</span> What is the YAML text format?</h3>
+<p>YAML (YAML Ain’t Markup Language) is a human-readable data format that is stored as a text file. It’s a way to store and organize information in a structured and easy-to-understand way, similar to how you might organize information in a spreadsheet or a database.</p>
+</section>
+</section>
+<section id="how-to-use-the-catalog-class" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="how-to-use-the-catalog-class"><span class="header-section-number">3.3</span> How to use the Catalog Class</h2>
+<p>Let’s say that you wanted to tally the number of epochs across two different auditory evoked datasets. Using the example above, you could do something like this:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> signalfloweeg.catalog <span class="im">import</span> Catalog</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize the catalog</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>catalog <span class="op">=</span> Catalog(<span class="st">"example_datasets.yaml"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the location of a dataset</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>data_folder1 <span class="op">=</span> catalog.get_location(<span class="st">"demo_auditory_chirp"</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>data_folder2 <span class="op">=</span> catalog.get_location(<span class="st">"demo_auditory_assr"</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Now you can use these locations to load your data and perform your analysis.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The method calls will return the file system path to the dataset. You can then use this path within your analysis code.</p>
+</section>
+<section id="usefulness-of-abstracting-the-data-location" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="usefulness-of-abstracting-the-data-location"><span class="header-section-number">3.4</span> Usefulness of Abstracting the Data Location</h2>
+<p>By using dataset labels, you can easily change the underlying location of the dataset without having to modifications to your code. This is useful when developing code across different systems or sharing catalogs with others.</p>
+</section>
+<section id="creating-a-catalog-file" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="creating-a-catalog-file"><span class="header-section-number">3.5</span> Creating a Catalog File</h2>
+<p>Let’s return to our example catalog file:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Catalog Name: Example</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Catalog Date: 1/3/2024</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Comments: assr = auditory steady state recording</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Template: "dataset label": "path" or "file"</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">demo_rest_state</span><span class="kw">:</span><span class="at"> </span><span class="st">"/srv/RAWDATA/exampledata/Resting/128_Rest_EyesOpen_D1004.set"</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">demo_auditory_chirp</span><span class="kw">:</span><span class="at"> </span><span class="st">"/srv/RAWDATA/exampledata/Chirp/128_Chirp_D0657_DIN8.set"</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">demo_auditory_assr</span><span class="kw">:</span><span class="at"> </span><span class="st">"/srv/RAWDATA/exampledata/SteadyState/"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Let’s break down the structure and usage of this template:</p>
+<ol type="1">
+<li><p><strong>Catalog Name and Date</strong>: The first two lines provide metadata about the catalog, including the name and the date it was created. This information can be helpful for keeping track of different versions or iterations of your data catalog.</p></li>
+<li><p><strong>Comments</strong>: The third line allows you to add any relevant comments or notes about the datasets included in this catalog. In this example, the comment indicates that the “assr” datasets are related to auditory steady-state recordings.</p></li>
+<li><p><strong>Template</strong>: The template section is where you define the actual dataset information. Each dataset is represented by a key-value pair, where the “key” is the dataset label (e.g., <code>demo_rest_state</code>, <code>demo_auditory_chirp</code>, <code>demo_auditory_assr</code>) and the “value” is the file path or location of the dataset.</p>
+<ul>
+<li><strong>Dataset Label</strong>: The dataset label should be a descriptive and unique identifier for each dataset. These labels will be used to reference and access the datasets within your code.</li>
+<li><strong>File Path or Location</strong>: The value should be the full file path or location of the dataset. In this example, the paths are provided as absolute paths on a server (<code>/srv/RAWDATA/exampledata/...</code>), but they can also be relative paths or even file names if the datasets are located in a consistent directory structure.</li>
+</ul></li>
+</ol>
+<p>To use this YAML template with the <code>Catalog</code> class, you would typically save the content as a text file (e.g., <code>example_catalog.yml</code>).</p>
+</section>
+<section id="loading-the-catalog-file" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="loading-the-catalog-file"><span class="header-section-number">3.6</span> Loading the Catalog File</h2>
+<p>To load the catalog file, you would use the <code>Catalog</code> class as shown below:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> signalfloweeg.catalog <span class="im">import</span> Catalog</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>catalog <span class="op">=</span> Catalog(catalog_file<span class="op">=</span><span class="st">'example_catalog.yml'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Or if you have stored the catalog file on a web server, you can load it from a URL:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>catalog <span class="op">=</span> Catalog(catalog_url<span class="op">=</span><span class="st">'https://example.com/example_catalog.yml'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="exploring-the-catalog" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="exploring-the-catalog"><span class="header-section-number">3.7</span> Exploring the Catalog</h2>
+<p>Once you have a <code>Catalog</code> instance, you can use its various methods to interact with the dataset information.</p>
+<p>Here’s a concise table summarizing the key functions of the <code>Catalog</code> class:</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>load_catalog</code></td>
+<td>Loads the catalog from a local or web-hosted YAML file.</td>
+</tr>
+<tr class="even">
+<td><code>get_location</code></td>
+<td>Retrieves the file or folder path for a specific dataset.</td>
+</tr>
+<tr class="odd">
+<td><code>get_dataset_type</code></td>
+<td>Determines whether a dataset is a file or a folder.</td>
+</tr>
+<tr class="even">
+<td><code>get_associated_fdt</code></td>
+<td>Checks for an associated FDT file for a <code>.SET</code> dataset.</td>
+</tr>
+<tr class="odd">
+<td><code>get_filelist</code></td>
+<td>Retrieves a list of files for a dataset, with optional filtering.</td>
+</tr>
+<tr class="even">
+<td><code>summarize_filelist</code></td>
+<td>Provides a visual summary of the files associated with a dataset.</td>
+</tr>
+<tr class="odd">
+<td><code>create_yaml_template</code></td>
+<td>Generates a YAML template file with sample dataset information.</td>
+</tr>
+</tbody>
+</table>
+<p>This table provides a quick reference for the main functions available in the <code>Catalog</code> class, allowing you to easily identify the appropriate method for your data management needs.</p>
+</section>
+<section id="specific-method-details" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="specific-method-details"><span class="header-section-number">3.8</span> Specific Method Details</h2>
+<section id="retrieving-dataset-locations" class="level3" data-number="3.8.1">
+<h3 data-number="3.8.1" class="anchored" data-anchor-id="retrieving-dataset-locations"><span class="header-section-number">3.8.1</span> Retrieving Dataset Locations</h3>
+<p>The <code>get_location</code> method allows you to retrieve the file or folder path associated with a specific dataset:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the location of a dataset</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>dataset_location <span class="op">=</span> catalog.get_location(<span class="st">"demo_rest_state"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(dataset_location)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="determining-dataset-types" class="level3" data-number="3.8.2">
+<h3 data-number="3.8.2" class="anchored" data-anchor-id="determining-dataset-types"><span class="header-section-number">3.8.2</span> Determining Dataset Types</h3>
+<p>The <code>get_dataset_type</code> method can be used to determine whether a dataset is a file or a folder:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the type of a dataset</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>dataset_type <span class="op">=</span> catalog.get_dataset_type(<span class="st">"proj_ketamine"</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(dataset_type)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="checking-for-associated-fdt-files" class="level3" data-number="3.8.3">
+<h3 data-number="3.8.3" class="anchored" data-anchor-id="checking-for-associated-fdt-files"><span class="header-section-number">3.8.3</span> Checking for Associated FDT Files</h3>
+<p>If you have a dataset with a <code>.SET</code> extension, you can use the <code>get_associated_fdt_file</code> method to check if there is an associated FDT file:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check for an associated FDT file</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>fdt_file_path, fdt_file_present <span class="op">=</span> catalog.get_associated_fdt_file(<span class="st">"demo_rest_state"</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> fdt_file_present:</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Associated FDT file: </span><span class="sc">{</span>fdt_file_path<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"No associated FDT file found."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="retrieving-file-lists" class="level3" data-number="3.8.4">
+<h3 data-number="3.8.4" class="anchored" data-anchor-id="retrieving-file-lists"><span class="header-section-number">3.8.4</span> Retrieving File Lists</h3>
+<p>The <code>get_filelist</code> method allows you to retrieve a list of files associated with a specific dataset, optionally filtered by file extension, subfolder search, and filename regex:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve the files for a dataset, filtering by extension</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>dataset_files <span class="op">=</span> catalog.get_filelist(<span class="st">"demo_rest_state"</span>, extension<span class="op">=</span><span class="st">".set"</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> file_info <span class="kw">in</span> dataset_files:</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Folder path: </span><span class="sc">{</span>file_info[<span class="st">'folder_path'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"File name: </span><span class="sc">{</span>file_info[<span class="st">'file_name'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Extension: </span><span class="sc">{</span>file_info[<span class="st">'extension'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="summarizing-file-lists" class="level3" data-number="3.8.5">
+<h3 data-number="3.8.5" class="anchored" data-anchor-id="summarizing-file-lists"><span class="header-section-number">3.8.5</span> Summarizing File Lists</h3>
+<p>The <code>summarize_filelist</code> method provides a visual summary of the files associated with a dataset, including the total number of files, total size, and file type breakdown:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summarize the files for a dataset</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>catalog.summarize_filelist()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="creating-a-yaml-template" class="level3" data-number="3.8.6">
+<h3 data-number="3.8.6" class="anchored" data-anchor-id="creating-a-yaml-template"><span class="header-section-number">3.8.6</span> Creating a YAML Template</h3>
+<p>The <code>create_yaml_template</code> method allows you to generate a YAML template file with sample dataset names and file paths, which you can then customize with your own dataset information:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a YAML template file</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>catalog.create_yaml_template()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="conclusion" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">3.9</span> Conclusion</h2>
+<p>The <code>Catalog</code> class provides a comprehensive set of tools for managing your EEG data files. By using this class, you can streamline your data loading process, ensure consistency across your analysis workflows, and improve the overall reproducibility of your research.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/cincibrainlab\.github\.io\/signalfloweegbook\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../content/p050_setup_environment.html" class="pagination-link" aria-label="Setting up the Analysis Environment">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Setting up the Analysis Environment</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../content/setup_docker.html" class="pagination-link" aria-label="Reproducible Environment with Docker">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Reproducible Environment with Docker</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© CC-1.0</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/cincibrainlab/signalfloweegbook/edit/main/content/p100_load_catalog.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/cincibrainlab/signalfloweegbook/blob/main/content/p100_load_catalog.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/cincibrainlab/signalfloweegbook/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>This page is built with <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

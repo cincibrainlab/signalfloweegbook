@@ -2,50 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://cincibrainlab.github.io/signalfloweegbook/index.html</loc>
-    <lastmod>2024-03-22T16:05:56.210Z</lastmod>
+    <lastmod>2024-03-25T03:11:17.633Z</lastmod>
   </url>
   <url>
-    <loc>https://cincibrainlab.github.io/signalfloweegbook/content/setup.html</loc>
-    <lastmod>2024-03-22T16:05:56.202Z</lastmod>
+    <loc>https://cincibrainlab.github.io/signalfloweegbook/content/p010_project_overview.html</loc>
+    <lastmod>2024-03-25T03:11:17.625Z</lastmod>
   </url>
   <url>
-    <loc>https://cincibrainlab.github.io/signalfloweegbook/content/add-content.html</loc>
-    <lastmod>2024-03-22T16:05:56.202Z</lastmod>
+    <loc>https://cincibrainlab.github.io/signalfloweegbook/content/p050_setup_environment.html</loc>
+    <lastmod>2024-03-25T03:11:17.625Z</lastmod>
   </url>
   <url>
-    <loc>https://cincibrainlab.github.io/signalfloweegbook/content/customizing.html</loc>
-    <lastmod>2024-03-22T16:05:56.202Z</lastmod>
+    <loc>https://cincibrainlab.github.io/signalfloweegbook/content/p100_load_catalog.html</loc>
+    <lastmod>2024-03-25T03:11:17.625Z</lastmod>
   </url>
   <url>
-    <loc>https://cincibrainlab.github.io/signalfloweegbook/content/resting_state.html</loc>
-    <lastmod>2024-03-22T16:05:56.202Z</lastmod>
+    <loc>https://cincibrainlab.github.io/signalfloweegbook/content/setup_docker.html</loc>
+    <lastmod>2024-03-25T03:11:17.625Z</lastmod>
   </url>
   <url>
-    <loc>https://cincibrainlab.github.io/signalfloweegbook/content/rendering.html</loc>
-    <lastmod>2024-03-22T16:05:56.202Z</lastmod>
+    <loc>https://cincibrainlab.github.io/signalfloweegbook/content/p200_manuscript_repository.html</loc>
+    <lastmod>2024-03-25T03:11:17.625Z</lastmod>
   </url>
   <url>
-    <loc>https://cincibrainlab.github.io/signalfloweegbook/content/rmarkdown.html</loc>
-    <lastmod>2024-03-22T16:05:56.202Z</lastmod>
-  </url>
-  <url>
-    <loc>https://cincibrainlab.github.io/signalfloweegbook/content/code.html</loc>
-    <lastmod>2024-03-22T16:05:56.202Z</lastmod>
-  </url>
-  <url>
-    <loc>https://cincibrainlab.github.io/signalfloweegbook/content/adding-refs.html</loc>
-    <lastmod>2024-03-22T16:05:56.202Z</lastmod>
-  </url>
-  <url>
-    <loc>https://cincibrainlab.github.io/signalfloweegbook/content/references.html</loc>
-    <lastmod>2024-03-22T16:05:56.202Z</lastmod>
+    <loc>https://cincibrainlab.github.io/signalfloweegbook/content/odds_and_ends.html</loc>
+    <lastmod>2024-03-25T03:11:17.621Z</lastmod>
   </url>
   <url>
     <loc>https://cincibrainlab.github.io/signalfloweegbook/SignalFlowEEG-Book.pdf</loc>
-    <lastmod>2024-03-22T16:10:41.721Z</lastmod>
+    <lastmod>2024-03-25T03:16:12.103Z</lastmod>
   </url>
   <url>
     <loc>https://cincibrainlab.github.io/signalfloweegbook/SignalFlowEEG-Book.docx</loc>
-    <lastmod>2024-03-22T16:10:42.909Z</lastmod>
+    <lastmod>2024-03-25T03:16:12.871Z</lastmod>
   </url>
 </urlset>

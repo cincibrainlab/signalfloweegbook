@@ -30,203 +30,311 @@
     ]
   },
   {
-    "objectID": "content/setup.html",
-    "href": "content/setup.html",
-    "title": "1  Set-up",
+    "objectID": "content/p010_project_overview.html",
+    "href": "content/p010_project_overview.html",
+    "title": "1  Project Overview",
     "section": "",
-    "text": "1.1 GitHub Set-up",
+    "text": "1.1 Assessing Cortical Excitability Using Resting-State EEG",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Set-up</span>"
+      "CORTICAL EXCITABILITY",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Project Overview</span>"
     ]
   },
   {
-    "objectID": "content/setup.html#github-set-up",
-    "href": "content/setup.html#github-set-up",
-    "title": "1  Set-up",
+    "objectID": "content/p010_project_overview.html#assessing-cortical-excitability-using-resting-state-eeg",
+    "href": "content/p010_project_overview.html#assessing-cortical-excitability-using-resting-state-eeg",
+    "title": "1  Project Overview",
     "section": "",
-    "text": "Click the green “use template” button to make a repository with this content. Make sure to make your repo public (since GitHub Pages doesn’t work on private repos unless you have a paid account) and check box to include all the branches (so that you get the gh-pages branch). \nTurn on GitHub Pages under Settings &gt; Pages . You will set pages to be made from the gh-pages branch and root directory. \nTurn on GitHub Actions under Settings &gt; Actions &gt; General \nEdit the repo description and Readme to add a link to the webpage. When you edit the description, you will see the link url in the url box or you can click on the Actions tab or the Settings &gt; Pages page to find the url.",
+    "text": "1.1.1 Introduction\nResting state EEG analysis can provide valuable insights into cortical excitability, which is often altered in neurodevelopmental disorders like Fragile X Syndrome (FXS). One powerful tool for assessing cortical excitability is the Fitting Oscillations & One-Over F (FOOOF) algorithm, which can decompose the resting state EEG power spectrum into its underlying oscillatory and aperiodic components.\nIn this analysis, we will use FOOOF to compare cortical excitability, as measured by the aperiodic component of the power spectrum, between a group of individuals with FXS and a matched control group. This will allow us to better understand the neurophysiological underpinnings of the altered sensory processing and hyperexcitability often observed in FXS.\n\n\n1.1.2 Methods Overview\n\np050_setup_environment: Set up the analysis environment\np100_load_data_catalog: Organize datasets\np150_preprocess_data: Preprocess the data\np200_extract_features: Extract features\np300_compare_features: Compare features\np400_visualize_results: Visualize results\n\n\nPreprocess the resting state EEG data, including filtering, artifact rejection, and channel selection.\nApply the FOOOF algorithm to the preprocessed, source localized data to extract the aperiodic and oscillatory components of the power spectrum for each participant.\nCompare the aperiodic component between the FXS and control groups using appropriate statistical tests, such as t-tests or non-parametric tests, depending on the distribution of the data.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Set-up</span>"
+      "CORTICAL EXCITABILITY",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Project Overview</span>"
     ]
   },
   {
-    "objectID": "content/add-content.html",
-    "href": "content/add-content.html",
-    "title": "2  Customize",
+    "objectID": "content/p050_setup_environment.html",
+    "href": "content/p050_setup_environment.html",
+    "title": "2  Setting up the Analysis Environment",
     "section": "",
-    "text": "2.1 Edit and add your pages\nEdit the qmd or md files in the content folder. qmd files can include code (R, Python, Julia) and lots of Quarto markdown bells and whistles (like call-outs, cross-references, auto-citations and much more).\nEach page should start with\nand the first header will be the 2nd level, so ##. Note, there are situations where you leave off\nand start the qmd file with a level header #, but if using the default title yaml (in the --- fence) is a good habit since it makes it easy for Quarto convert your qmd file to other formats (like into a presentation).",
+    "text": "2.1 Cortical Excitability: Setting up the Analysis Environment",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Customize</span>"
+      "CORTICAL EXCITABILITY",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Setting up the Analysis Environment</span>"
     ]
   },
   {
-    "objectID": "content/add-content.html#edit-and-add-your-pages",
-    "href": "content/add-content.html#edit-and-add-your-pages",
-    "title": "2  Customize",
+    "objectID": "content/p050_setup_environment.html#cortical-excitability-setting-up-the-analysis-environment",
+    "href": "content/p050_setup_environment.html#cortical-excitability-setting-up-the-analysis-environment",
+    "title": "2  Setting up the Analysis Environment",
     "section": "",
-    "text": "---\ntitle: your title\n---\n\n---\ntitle: your title\n---",
+    "text": "2.1.1 Overview\nThis tutorial will walk you through setting up the analysis environment for this project.\nTasks to Complete: 1. Install: Python 2. Install: MNE 3. Install: SignalFlowEeg 4. Install: FOOOF\nWe have outlined these steps in a single code file p050_setup_environment.\n\n\n2.1.2 Install Python\nThere are many ways to install Python which makes the process even more challenging. Since we will be using MNE, I recommend for beginners installing Python per the MNE teams instructions.\nFor advanced users or those who want to learn how to setup a custom python environment, we have included our approach using pyenv. This guide is optimized for Mac/Unix and Windows Subsystem for Linux.\n\n\n2.1.3 Setting up a Python Environment with pyenv\n\nHomebrew: The easiest way to install pyenv is via Homebrew. Make sure to follow the instructions following install to have the brew command available.\nPyenv: Follow the instructions to install pyenv via Homebrew.\nPyenv-Virtualenv: We will be using pyenv-virtualenv to create isolated python environments. Install via Homebrew.\nPython: Pyenv can install and manage multiple versions of Python. We are following recommendations by the MNE team to start with a conda distribution with Python 3.11. MNE has a preference for using conda environments.\nMNE: MNE is a Python package for processing and analyzing MEG and EEG data. It is a powerful tool for analyzing electrophysiological data.\nSignalFlowEeg: SignalFlowEeg is a Python package for processing and analyzing MEG and EEG data. It is a powerful tool for analyzing electrophysiological data.\nFOOOF: FOOOF is a Python package for analyzing the power spectrum of electrophysiological data. It is a powerful tool for analyzing electrophysiological data.\n\n\n\n2.1.4 Setting up SignalFlowEeg\nUse the following command to install signalfloweeg directly from its GitHub repository. This command will clone the repository and install the package in editable mode, which means you can update the package by pulling changes from the repository.\npip install -e git+https://github.com/cincibrainlab/signalfloweeg_py.git#egg=signalfloweeg --src /home/username/src/signalfloweeg_dev\nHere’s what each part of the command does: - pip: This specifies the pip executable within the Conda environment you created. - install -e: The -e flag installs the package in “editable” mode. - git+https://github.com/cincibrainlab/signalfloweeg_py.git: This is the Git URL of the signalfloweeg repository. - #egg=signalfloweeg: This tells pip the name of the package to install. - --src /home/username/src/signalfloweeg_dev: This specifies the source directory where the package will be cloned.\nImport the Package:\nIn your Python script or Jupyter notebook, import signalfloweeg:\nimport signalfloweeg\nCitations: [1] https://github.com/cincibrainlab/signalfloweeg_py.git [2] https://docs.python.org/3/using/windows.html [3] https://phoenixnap.com/kb/how-to-install-python-3-windows [4] https://stackoverflow.com/questions/33876657/how-to-install-python-any-version-in-windows-when-youve-no-admin-privileges [5] https://builtin.com/software-engineering-perspectives/how-to-install-python-on-windows\nbrew install pyenv\n\np050_setup_environment: Set up the analysis environment\np100_load_data_catalog: Retrieve file list and associated metadata\n\n\nPreprocess the resting state EEG data, including filtering, artifact rejection, and channel selection.\nApply the FOOOF algorithm to the preprocessed, source localized data to extract the aperiodic and oscillatory components of the power spectrum for each participant.\nCompare the aperiodic component between the FXS and control groups using appropriate statistical tests, such as t-tests or non-parametric tests, depending on the distribution of the data.",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Customize</span>"
+      "CORTICAL EXCITABILITY",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Setting up the Analysis Environment</span>"
     ]
   },
   {
-    "objectID": "content/add-content.html#add-your-pages-the-project",
-    "href": "content/add-content.html#add-your-pages-the-project",
-    "title": "2  Customize",
-    "section": "2.2 Add your pages the project",
-    "text": "2.2 Add your pages the project\n\nAdd the files to _quarto.yml",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Customize</span>"
-    ]
-  },
-  {
-    "objectID": "content/customizing.html",
-    "href": "content/customizing.html",
-    "title": "3  Customization",
+    "objectID": "content/p100_load_catalog.html",
+    "href": "content/p100_load_catalog.html",
+    "title": "3  Catalog Class",
     "section": "",
-    "text": "3.1 Quarto documentation\nQuarto allow many bells and whistles to make nice output. Read the documentation here Quarto documentation.",
+    "text": "3.1 Organizing Data with Catalog Class\nEffective dataset organization is critical to maintain a productive analysis pipeline. Imagine if you could call specific data files or data directories from a function call anywhere in your analysis code? What if you could store this “catalog” in a simple, human-editable file, which can be accessed from a local folder or retrieved from a web link, without a complex database systems.\nThe Catalog class in the signalfloweeg module does exactly this!",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Customization</span>"
+      "CORTICAL EXCITABILITY",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Catalog Class</span>"
     ]
   },
   {
-    "objectID": "content/customizing.html#examples",
-    "href": "content/customizing.html#examples",
-    "title": "3  Customization",
-    "section": "3.2 Examples",
-    "text": "3.2 Examples\nLooking at other people’s Quarto code is a great way to figure out how to do stuff. Most will have a link to a GitHub repo where you can see the raw code. Look for a link to edit page or see source code. This will usually be on the right. Or look for the GitHub icon somewhere.\n\nQuarto gallery\nnmfs-openscapes\nFaye lab manual\nquarto-titlepages Note the link to edit is broken. Go to repo and look in documentation directory.",
+    "objectID": "content/p100_load_catalog.html#an-example-catalog-file",
+    "href": "content/p100_load_catalog.html#an-example-catalog-file",
+    "title": "3  Catalog Class",
+    "section": "3.2 An Example Catalog File",
+    "text": "3.2 An Example Catalog File\nLet’s look at an example of a Catalog file named example_datasets.yaml which can be edited in a text editor:\n# Catalog Name: Example\n# Catalog Date: 1/3/2024\n# Comments: assr = auditory steady state recording\n# Template: \"dataset label\": \"path\" or \"file\"\n\ndemo_rest_state: \"/srv/RAWDATA/exampledata/Resting/128_Rest_EyesOpen_D1004.set\"\ndemo_auditory_chirp: \"/srv/RAWDATA/exampledata/Chirp/128_Chirp_D0657_DIN8.set\"\ndemo_auditory_assr: \"/srv/RAWDATA/exampledata/SteadyState/\"\nYou can make as many catalog files as you need - maybe one for each project or server. You could also use a single catalog file to store different stages or versions of a project.\n\n3.2.1 What is the YAML text format?\nYAML (YAML Ain’t Markup Language) is a human-readable data format that is stored as a text file. It’s a way to store and organize information in a structured and easy-to-understand way, similar to how you might organize information in a spreadsheet or a database.",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Customization</span>"
+      "CORTICAL EXCITABILITY",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Catalog Class</span>"
     ]
   },
   {
-    "objectID": "content/resting_state.html",
-    "href": "content/resting_state.html",
-    "title": "4  Customization",
+    "objectID": "content/p100_load_catalog.html#how-to-use-the-catalog-class",
+    "href": "content/p100_load_catalog.html#how-to-use-the-catalog-class",
+    "title": "3  Catalog Class",
+    "section": "3.3 How to use the Catalog Class",
+    "text": "3.3 How to use the Catalog Class\nLet’s say that you wanted to tally the number of epochs across two different auditory evoked datasets. Using the example above, you could do something like this:\nfrom signalfloweeg.catalog import Catalog\n\n# Initialize the catalog\ncatalog = Catalog(\"example_datasets.yaml\")\n\n# Get the location of a dataset\ndata_folder1 = catalog.get_location(\"demo_auditory_chirp\")\ndata_folder2 = catalog.get_location(\"demo_auditory_assr\")\n\n# Now you can use these locations to load your data and perform your analysis.\nThe method calls will return the file system path to the dataset. You can then use this path within your analysis code.",
+    "crumbs": [
+      "CORTICAL EXCITABILITY",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Catalog Class</span>"
+    ]
+  },
+  {
+    "objectID": "content/p100_load_catalog.html#usefulness-of-abstracting-the-data-location",
+    "href": "content/p100_load_catalog.html#usefulness-of-abstracting-the-data-location",
+    "title": "3  Catalog Class",
+    "section": "3.4 Usefulness of Abstracting the Data Location",
+    "text": "3.4 Usefulness of Abstracting the Data Location\nBy using dataset labels, you can easily change the underlying location of the dataset without having to modifications to your code. This is useful when developing code across different systems or sharing catalogs with others.",
+    "crumbs": [
+      "CORTICAL EXCITABILITY",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Catalog Class</span>"
+    ]
+  },
+  {
+    "objectID": "content/p100_load_catalog.html#creating-a-catalog-file",
+    "href": "content/p100_load_catalog.html#creating-a-catalog-file",
+    "title": "3  Catalog Class",
+    "section": "3.5 Creating a Catalog File",
+    "text": "3.5 Creating a Catalog File\nLet’s return to our example catalog file:\n# Catalog Name: Example\n# Catalog Date: 1/3/2024\n# Comments: assr = auditory steady state recording\n# Template: \"dataset label\": \"path\" or \"file\"\n\ndemo_rest_state: \"/srv/RAWDATA/exampledata/Resting/128_Rest_EyesOpen_D1004.set\"\ndemo_auditory_chirp: \"/srv/RAWDATA/exampledata/Chirp/128_Chirp_D0657_DIN8.set\"\ndemo_auditory_assr: \"/srv/RAWDATA/exampledata/SteadyState/\"\nLet’s break down the structure and usage of this template:\n\nCatalog Name and Date: The first two lines provide metadata about the catalog, including the name and the date it was created. This information can be helpful for keeping track of different versions or iterations of your data catalog.\nComments: The third line allows you to add any relevant comments or notes about the datasets included in this catalog. In this example, the comment indicates that the “assr” datasets are related to auditory steady-state recordings.\nTemplate: The template section is where you define the actual dataset information. Each dataset is represented by a key-value pair, where the “key” is the dataset label (e.g., demo_rest_state, demo_auditory_chirp, demo_auditory_assr) and the “value” is the file path or location of the dataset.\n\nDataset Label: The dataset label should be a descriptive and unique identifier for each dataset. These labels will be used to reference and access the datasets within your code.\nFile Path or Location: The value should be the full file path or location of the dataset. In this example, the paths are provided as absolute paths on a server (/srv/RAWDATA/exampledata/...), but they can also be relative paths or even file names if the datasets are located in a consistent directory structure.\n\n\nTo use this YAML template with the Catalog class, you would typically save the content as a text file (e.g., example_catalog.yml).",
+    "crumbs": [
+      "CORTICAL EXCITABILITY",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Catalog Class</span>"
+    ]
+  },
+  {
+    "objectID": "content/p100_load_catalog.html#loading-the-catalog-file",
+    "href": "content/p100_load_catalog.html#loading-the-catalog-file",
+    "title": "3  Catalog Class",
+    "section": "3.6 Loading the Catalog File",
+    "text": "3.6 Loading the Catalog File\nTo load the catalog file, you would use the Catalog class as shown below:\nfrom signalfloweeg.catalog import Catalog\n\ncatalog = Catalog(catalog_file='example_catalog.yml')\nOr if you have stored the catalog file on a web server, you can load it from a URL:\ncatalog = Catalog(catalog_url='https://example.com/example_catalog.yml')",
+    "crumbs": [
+      "CORTICAL EXCITABILITY",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Catalog Class</span>"
+    ]
+  },
+  {
+    "objectID": "content/p100_load_catalog.html#exploring-the-catalog",
+    "href": "content/p100_load_catalog.html#exploring-the-catalog",
+    "title": "3  Catalog Class",
+    "section": "3.7 Exploring the Catalog",
+    "text": "3.7 Exploring the Catalog\nOnce you have a Catalog instance, you can use its various methods to interact with the dataset information.\nHere’s a concise table summarizing the key functions of the Catalog class:\n\n\n\n\n\n\n\nFunction\nDescription\n\n\n\n\nload_catalog\nLoads the catalog from a local or web-hosted YAML file.\n\n\nget_location\nRetrieves the file or folder path for a specific dataset.\n\n\nget_dataset_type\nDetermines whether a dataset is a file or a folder.\n\n\nget_associated_fdt\nChecks for an associated FDT file for a .SET dataset.\n\n\nget_filelist\nRetrieves a list of files for a dataset, with optional filtering.\n\n\nsummarize_filelist\nProvides a visual summary of the files associated with a dataset.\n\n\ncreate_yaml_template\nGenerates a YAML template file with sample dataset information.\n\n\n\nThis table provides a quick reference for the main functions available in the Catalog class, allowing you to easily identify the appropriate method for your data management needs.",
+    "crumbs": [
+      "CORTICAL EXCITABILITY",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Catalog Class</span>"
+    ]
+  },
+  {
+    "objectID": "content/p100_load_catalog.html#specific-method-details",
+    "href": "content/p100_load_catalog.html#specific-method-details",
+    "title": "3  Catalog Class",
+    "section": "3.8 Specific Method Details",
+    "text": "3.8 Specific Method Details\n\n3.8.1 Retrieving Dataset Locations\nThe get_location method allows you to retrieve the file or folder path associated with a specific dataset:\n# Get the location of a dataset\ndataset_location = catalog.get_location(\"demo_rest_state\")\nprint(dataset_location)\n\n\n3.8.2 Determining Dataset Types\nThe get_dataset_type method can be used to determine whether a dataset is a file or a folder:\n# Check the type of a dataset\ndataset_type = catalog.get_dataset_type(\"proj_ketamine\")\nprint(dataset_type)\n\n\n3.8.3 Checking for Associated FDT Files\nIf you have a dataset with a .SET extension, you can use the get_associated_fdt_file method to check if there is an associated FDT file:\n# Check for an associated FDT file\nfdt_file_path, fdt_file_present = catalog.get_associated_fdt_file(\"demo_rest_state\")\nif fdt_file_present:\n    print(f\"Associated FDT file: {fdt_file_path}\")\nelse:\n    print(\"No associated FDT file found.\")\n\n\n3.8.4 Retrieving File Lists\nThe get_filelist method allows you to retrieve a list of files associated with a specific dataset, optionally filtered by file extension, subfolder search, and filename regex:\n# Retrieve the files for a dataset, filtering by extension\ndataset_files = catalog.get_filelist(\"demo_rest_state\", extension=\".set\")\nfor file_info in dataset_files:\n    print(f\"Folder path: {file_info['folder_path']}\")\n    print(f\"File name: {file_info['file_name']}\")\n    print(f\"Extension: {file_info['extension']}\")\n    print()\n\n\n3.8.5 Summarizing File Lists\nThe summarize_filelist method provides a visual summary of the files associated with a dataset, including the total number of files, total size, and file type breakdown:\n# Summarize the files for a dataset\ncatalog.summarize_filelist()\n\n\n3.8.6 Creating a YAML Template\nThe create_yaml_template method allows you to generate a YAML template file with sample dataset names and file paths, which you can then customize with your own dataset information:\n# Create a YAML template file\ncatalog.create_yaml_template()",
+    "crumbs": [
+      "CORTICAL EXCITABILITY",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Catalog Class</span>"
+    ]
+  },
+  {
+    "objectID": "content/p100_load_catalog.html#conclusion",
+    "href": "content/p100_load_catalog.html#conclusion",
+    "title": "3  Catalog Class",
+    "section": "3.9 Conclusion",
+    "text": "3.9 Conclusion\nThe Catalog class provides a comprehensive set of tools for managing your EEG data files. By using this class, you can streamline your data loading process, ensure consistency across your analysis workflows, and improve the overall reproducibility of your research.",
+    "crumbs": [
+      "CORTICAL EXCITABILITY",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Catalog Class</span>"
+    ]
+  },
+  {
+    "objectID": "content/setup_docker.html",
+    "href": "content/setup_docker.html",
+    "title": "4  Reproducible Environment with Docker",
     "section": "",
-    "text": "4.1 Assessing Cortical Excitability Using Resting-State EEG",
+    "text": "4.1 “Operating System in a Box”\nUsing a Docker container is a compelling option for creating a reproducible analysis environment. Docker containers provide a self-contained, portable “operating system in a box” that can be deployed on any machine with Docker installed, whether it’s your local computer or a remote server. By using a consistent Linux-based Docker container, your setup scripts can be used across different platforms, ensuring your analysis environment is consistent and reproducible.\nWorking within a container has become much easier with the introduction of Visual Studio Code. VS Code is a free and open-source editor that supports development in most of the popular programming languages including Python. It also has a built-in terminal and can be used to run Docker containers.",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Customization</span>"
+      "CORTICAL EXCITABILITY",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Reproducible Environment with Docker</span>"
     ]
   },
   {
-    "objectID": "content/resting_state.html#assessing-cortical-excitability-using-resting-state-eeg",
-    "href": "content/resting_state.html#assessing-cortical-excitability-using-resting-state-eeg",
-    "title": "4  Customization",
+    "objectID": "content/setup_docker.html#graphical-desktop-in-docker",
+    "href": "content/setup_docker.html#graphical-desktop-in-docker",
+    "title": "4  Reproducible Environment with Docker",
+    "section": "4.2 Graphical Desktop in Docker",
+    "text": "4.2 Graphical Desktop in Docker\nDocker containers can run a full graphical desktop interface that can be easily accessed via a web browser. This is particularly useful for running Jupyter notebooks and other web-based applications. Several well-supported graphical containers are available for neuroscience, such as signalflow-stacks, neurodesk, and ‘Jupyter Stacks’. More complex docker containers can run a full graphical desktop interface that can be easily accessed via a web browser. This is particularly useful for running Jupyter notebooks and other web-based applications.\nSeveral well-supported graphical containers are available for neuroscience:\n\nsignalflow-stacks MATLAB, Python, and R with Jupyter notebook support.\nneurodesk A web-based desktop for neuroscience.\n‘Jupyter Stacks’ A collection of Docker images for Jupyter notebook, R, and Python.\n\nFor more information on Docker, including installation instructions, visit the Docker documentation. Mac users can also refer to the Orbstack documentation.",
+    "crumbs": [
+      "CORTICAL EXCITABILITY",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Reproducible Environment with Docker</span>"
+    ]
+  },
+  {
+    "objectID": "content/setup_docker.html#custom-signalfloweeg-docker-container",
+    "href": "content/setup_docker.html#custom-signalfloweeg-docker-container",
+    "title": "4  Reproducible Environment with Docker",
+    "section": "4.3 Custom SignalFlowEeg Docker Container",
+    "text": "4.3 Custom SignalFlowEeg Docker Container\nWe have created a custom Docker container to simplify the setup process and ensure a smooth workflow. This Docker container is built upon the quay.io/jupyter/datascience-notebook image, a widely-used base for data science and scientific computing. We’ve carefully curated and added the specific packages and libraries required for our signal analysis work, eliminating the need for you to worry about the intricate details of setting up your development environment.\nIn addition to the Python environment, we’ve also included several essential packages:\n\nMNE: This powerful Python package for processing and analyzing MEG and EEG data is a crucial tool in our arsenal.\nSignalFlowEeg: Our custom-developed Python package for signal analysis is pre-installed, allowing you to seamlessly integrate it into your workflow.\nFOOOF: The FOOOF package, which enables us to analyze the power spectrum of our electrophysiological data, is another essential component we’ve included.\nQuarto: To streamline the creation of dynamic reports and visualizations, we’ve set up Quarto, a versatile open-source tool, within the container.\nVisual Studio Code: For a familiar and efficient coding experience, we’ve installed Visual Studio Code and configured it to run with the --no-sandbox flag, addressing any potential issues that may arise in a containerized environment.\n\nBy using this custom Docker container, you can focus on your research without the hassle of setting up a complex development environment from scratch. Everything is pre-installed and configured, ensuring a consistent and reproducible analysis environment.\nTo get started, simply follow the instructions in the p040_run_docker_ubuntu22.sh script. If you have any questions or encounter any issues, don’t hesitate to reach out to the team. We’re here to support you throughout this process and ensure you have a smooth and productive experience.",
+    "crumbs": [
+      "CORTICAL EXCITABILITY",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Reproducible Environment with Docker</span>"
+    ]
+  },
+  {
+    "objectID": "content/setup_docker.html#example-running-a-jupyter-notebook-in-a-docker-container",
+    "href": "content/setup_docker.html#example-running-a-jupyter-notebook-in-a-docker-container",
+    "title": "4  Reproducible Environment with Docker",
+    "section": "4.4 Example: Running a Jupyter Notebook in a Docker Container",
+    "text": "4.4 Example: Running a Jupyter Notebook in a Docker Container\n\n4.4.1 Understanding Docker Run Command Options\nDocker is a powerful platform for developing, shipping, and running applications inside containers. The docker run command below can create a new reproducible analysis workspace.\ndocker run \\                                  # Run a new container\n  -v /Users/ernie/Documents/GitHub/cbl_spectparm_fxsrest:/srv \\  # Mount a volume from host to container\n  -e DISPLAY=\"host.docker.internal:0\" \\       # Set DISPLAY environment variable for X11 forwarding\n  -e GRANT_SUDO=yes \\                         # Allow sudo command within the container\n  --user root \\                               # Run as root user\n  -it \\                                       # Interactive terminal\n  --rm \\                                      # Remove container on exit\n  --name dev-ubuntu \\                         # Name the container 'dev-ubuntu'\n  quay.io/jupyter/datascience-notebook:latest \\  # Use the 'datascience-notebook' image from quay.io\n  /bin/bash                                   # Start a Bash shell\nLet’s break down the different parts of a complex docker run command to understand what each option does.\n\n4.4.1.1 The Base Command\ndocker run\nThis is the base command that tells Docker to run a new container.\n\n\n4.4.1.2 Volume Mounting\n-v /Users/ernie/Documents/GitHub/cbl_spectparm_fxsrest:/srv\nThe -v flag mounts a volume. It maps a directory from the host (/Users/ernie/Documents/GitHub/cbl_spectparm_fxsrest) into the container (/srv). This allows for data to be persisted and shared between the host and the container. In this case, it is pointing to my analysis code repository.\n\n\n4.4.1.3 Environment Variables\n-e DISPLAY=\"host.docker.internal:0\"\n-e GRANT_SUDO=yes\nThe -e flag sets environment variables inside the container. Here, DISPLAY is set to host.docker.internal:0, which is typically used for X11 forwarding to allow GUI applications to display on the host (see below).\nGRANT_SUDO is set to yes to allow the sudo command within the container. This is a specific option for the quay.io/jupyter/datascience-notebook image which allows the default user to be given admin privileges.\n\n\n4.4.1.4 User Configuration\n--user root\nThe --user option specifies which user the container should run as. In this case, it’s set to root, to temporarly allow the container at start up to assign admin privledges to the default user as specified in the documentation.\n\n\n4.4.1.5 Interactive Terminal\n-it\nThe -it flags are shorthand for --interactive and --tty. This combination allows you to interact with the container via a terminal interface.\n\n\n4.4.1.6 Container Cleanup\n--rm\nThe --rm flag tells Docker to automatically remove the container when it exits. This is useful for not leaving behind any stopped containers, keeping your system clean.\n\n\n4.4.1.7 Container Naming\n--name dev-ubuntu\nThe --name option assigns a name to the container, making it easier to reference. In this case, the container is named dev-ubuntu.\n\n\n4.4.1.8 Docker Image\nquay.io/jupyter/datascience-notebook:latest\nThis specifies the Docker image to use for the container. The image is hosted on quay.io, and it’s the datascience-notebook repository with the latest tag, indicating the most recent version.\n\n\n4.4.1.9 Command Override\n/bin/bash\nFinally, /bin/bash is the command that will be run inside the container once it starts. This overrides the default command specified in the Docker image, and in this case, it will start a Bash shell.\n\n\n4.4.1.10 Full Command Breakdown\nHere’s the full docker run command with each part explained:\ndocker run \\                                  # Run a new container\n  -v /Users/ernie/Documents/GitHub/cbl_spectparm_fxsrest:/srv \\  # Mount a volume from host to container\n  -e DISPLAY=\"host.docker.internal:0\" \\       # Set DISPLAY environment variable for X11 forwarding\n  -e GRANT_SUDO=yes \\                         # Allow sudo command within the container\n  --user root \\                               # Run as root user\n  -it \\                                       # Interactive terminal\n  --rm \\                                      # Remove container on exit\n  --name dev-ubuntu \\                         # Name the container 'dev-ubuntu'\n  quay.io/jupyter/datascience-notebook:latest \\  # Use the 'datascience-notebook' image from quay.io\n  /bin/bash                                   # Start a Bash shell\nUnderstanding each part of the docker run command is crucial for managing Docker containers effectively. With this knowledge, you can customize your Docker containers to fit your development needs perfectly.",
+    "crumbs": [
+      "CORTICAL EXCITABILITY",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Reproducible Environment with Docker</span>"
+    ]
+  },
+  {
+    "objectID": "content/setup_docker.html#using-an-x-server-on-your-local-machine",
+    "href": "content/setup_docker.html#using-an-x-server-on-your-local-machine",
+    "title": "4  Reproducible Environment with Docker",
+    "section": "4.5 Using an X-server on your Local Machine",
+    "text": "4.5 Using an X-server on your Local Machine\nA common use case for Docker is to run a graphical application with an X-server. This is done by running the Docker container with the -e DISPLAY flag. This flag tells the container to use the X-server on the host machine. This allows the container to display the graphical applications on the host machine.\nIf you have an Mac, you can use the XQuartz X11 server. XQuartz is a free X11 server that allows the Docker container to display the graphical interface on the Mac. Before troubleshooting, make sure your X11 preferences are set to allow connections from network clients and turn off “Authenticate connections”. On my system I only had to make one addition to my docker run command to run GUI applications and figures from my container:\n  -e DISPLAY=\"host.docker.internal:0\" \\",
+    "crumbs": [
+      "CORTICAL EXCITABILITY",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Reproducible Environment with Docker</span>"
+    ]
+  },
+  {
+    "objectID": "content/setup_docker.html#frequently-asked-questions",
+    "href": "content/setup_docker.html#frequently-asked-questions",
+    "title": "4  Reproducible Environment with Docker",
+    "section": "4.6 Frequently Asked Questions",
+    "text": "4.6 Frequently Asked Questions\n\n4.6.1 How do I access my data in my container?\nThis is a common question. The best way to access your data in your container is to use a volume mount. A volume mount is a mechanism to allow a container to access a directory on the host machine. This is done by specifying a -v flag in the docker run command. Any data saved within the container on the mounted volume will be saved on the host machine even after the container is stopped.\n# Start a new Ubuntu 22.04 Docker container in interactive mode\n# Local folder is mapped to a folder within the container\ndocker run -v /local_folder:/container_folder -it --name dev-ubuntu ubuntu:22.04 /bin/bash`",
+    "crumbs": [
+      "CORTICAL EXCITABILITY",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Reproducible Environment with Docker</span>"
+    ]
+  },
+  {
+    "objectID": "content/p200_manuscript_repository.html",
+    "href": "content/p200_manuscript_repository.html",
+    "title": "5  Manuscript Repository",
     "section": "",
-    "text": "4.1.1 Introduction\nResting state EEG analysis can provide valuable insights into cortical excitability, which is often altered in neurodevelopmental disorders like Fragile X Syndrome (FXS). One powerful tool for assessing cortical excitability is the Fitting Oscillations & One-Over F (FOOOF) algorithm, which can decompose the resting state EEG power spectrum into its underlying oscillatory and aperiodic components.\nIn this analysis, we will use FOOOF to compare cortical excitability, as measured by the aperiodic component of the power spectrum, between a group of individuals with FXS and a matched control group. This will allow us to better understand the neurophysiological underpinnings of the altered sensory processing and hyperexcitability often observed in FXS.\n\n\n4.1.2 Methods Overview\n\np050_setup_environment: Set up the analysis environment\np100_load_data_catalog: Retrieve file list and associated metadata\n\n\nPreprocess the resting state EEG data, including filtering, artifact rejection, and channel selection.\nApply the FOOOF algorithm to the preprocessed, source localized data to extract the aperiodic and oscillatory components of the power spectrum for each participant.\nCompare the aperiodic component between the FXS and control groups using appropriate statistical tests, such as t-tests or non-parametric tests, depending on the distribution of the data.",
+    "text": "5.1 Organizing a Comprehensive Manuscript Repository\nWhen working on multiple scientific research projects, managing the various components of your manuscripts can quickly become a complex task. From the manuscript text itself to the associated code, datasets, figures, and submission materials, keeping everything organized and version-controlled is crucial for efficient collaboration and successful publication.\nIn this chapter, we’ll explore a robust folder structure that organizes your manuscript repository around the individual research projects, making it easier to navigate and manage your scientific work.",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Customization</span>"
+      "MANUSCRIPT REPOSITORY",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Manuscript Repository</span>"
     ]
   },
   {
-    "objectID": "content/rendering.html",
-    "href": "content/rendering.html",
-    "title": "5  Rendering",
+    "objectID": "content/p200_manuscript_repository.html#the-manuscript-centric-repository-structure",
+    "href": "content/p200_manuscript_repository.html#the-manuscript-centric-repository-structure",
+    "title": "5  Manuscript Repository",
+    "section": "5.2 The Manuscript-Centric Repository Structure",
+    "text": "5.2 The Manuscript-Centric Repository Structure\nThe proposed manuscript repository structure consists of a top-level folder, Manuscript_Repository/, which houses individual folders for each of your research manuscripts. This manuscript-centric approach ensures that all the necessary files and materials for a given project are kept together, providing a clear and intuitive organization.\nWithin each manuscript folder, you’ll find the following subfolders:\n\nv[version number]/:\n\nThis version-specific subfolder contains all the files related to a particular iteration of the manuscript, including the manuscript text, code, data, figures, tables, and submission materials.\nThe version number allows you to easily track and manage the evolution of your manuscript over time.\n\nCode/:\n\nThis folder stores the scripts, notebooks, and other code files associated with the research and analysis for the manuscript.\n\nData/:\n\nThe raw and processed data files used in the manuscript are organized in the raw/ and processed/ subfolders, respectively.\n\nFigures/:\n\nAll the figures, images, and visualizations referenced in the manuscript are kept in this folder.\n\nTables/:\n\nTabular data, such as Excel or CSV files, that are included in the manuscript are stored here.\n\nSubmission/:\n\nThis folder contains any files related to the manuscript submission process, such as the cover letter, data usage agreements, or author statements.\n\n\nBy adopting this manuscript-centric folder structure, you can easily navigate and manage your research projects, ensuring that all the necessary components for a given manuscript are easily accessible and organized.",
+    "crumbs": [
+      "MANUSCRIPT REPOSITORY",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Manuscript Repository</span>"
+    ]
+  },
+  {
+    "objectID": "content/p200_manuscript_repository.html#leveraging-git-for-manuscript-versioning-and-collaboration",
+    "href": "content/p200_manuscript_repository.html#leveraging-git-for-manuscript-versioning-and-collaboration",
+    "title": "5  Manuscript Repository",
+    "section": "6.1 Leveraging Git for Manuscript Versioning and Collaboration",
+    "text": "6.1 Leveraging Git for Manuscript Versioning and Collaboration\nAs a researcher, you can utilize version control systems like Git to manage the evolution of your scientific manuscripts. Even if you’re new to using code repositories, Git can provide valuable benefits for your manuscript workflow.\n\n6.1.1 Understanding Git’s Capabilities\nGit is a distributed version control system that allows you to track changes to your files, collaborate with others, and maintain a comprehensive history of your project. Its features can be highly beneficial for managing your manuscript repository.\n\n\n6.1.2 Getting Started with Git\nTo use Git for your manuscripts, you’ll first need to set up a Git repository in your project folder. This is as simple as running the git init command in your manuscript directory.\n\n\n6.1.3 Tracking Changes and Revisions\nWith Git, you can easily track changes to your manuscript files. Use git add to stage your changes, and git commit to save snapshots of your work with descriptive messages.\n\n\n6.1.4 Collaborating with Git\nGit facilitates collaboration by allowing you to share your repository with team members. They can then clone the repository, make changes, and push their updates, which Git will merge seamlessly.\n\n\n6.1.5 Essential Git Commands\nAs you continue using Git, familiarize yourself with commands like git status, git log, git pull, and git push to streamline your manuscript versioning and collaboration workflows.\nBy incorporating Git into your manuscript management process, you can benefit from increased version control, improved collaboration, and better traceability of your research work. Don’t be intimidated – the basic Git concepts are easy to learn and can have a significant positive impact on how you manage your scientific manuscripts.",
+    "crumbs": [
+      "MANUSCRIPT REPOSITORY",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Manuscript Repository</span>"
+    ]
+  },
+  {
+    "objectID": "content/p200_manuscript_repository.html#incorporating-git-lfs",
+    "href": "content/p200_manuscript_repository.html#incorporating-git-lfs",
+    "title": "5  Manuscript Repository",
+    "section": "6.2 Incorporating Git LFS",
+    "text": "6.2 Incorporating Git LFS\nTo effectively manage large files, such as data, figures, and other binary assets, the repository utilizes Git LFS (Large File Storage). This allows you to seamlessly track and version control these large files alongside the manuscript text and other supporting materials.\nBy initializing Git LFS in the repository and specifying the file types to be managed by it, you can ensure that your manuscript project remains lightweight and performant, while still maintaining a comprehensive version history and collaboration capabilities.\nGit LFS is separate software from Git. Prior to running the commands below first visit Git LFS and follow the install instructions.\nThe process of incorporating Git LFS into your manuscript repository involves the following steps:\n\nInitialize Git LFS: In the top-level Manuscript_Repository/ folder, run the command git lfs install to set up the Git LFS extension in your local repository.\nTrack Large File Types: Decide which file types in your repository should be managed by Git LFS, such as .csv, .rdata, .png, .tiff, and .eps. Add these file types to the Git LFS tracking using the command git lfs track \"*.csv\" \"*.rdata\" \"*.png\" \"*.tiff\" \"*.eps\". git lfs track \"*.ai\" \"*.doc\" \"*.docx\"\nCommit the .gitattributes File: Git LFS uses a .gitattributes file to track the file types you specified. Commit this file to your repository with git add .gitattributes and git commit -m \"Initialize Git LFS tracking\".\nAdd Large Files to the Repository: As you add large files to your repository, Git LFS will automatically manage them. For example, when adding a large data file, use git add Data/Experiment1/raw/participant_data.csv and git commit -m \"Add raw experiment data\".\nManage Large File Storage: Git LFS provides commands to manage the storage of large files, such as git lfs env to view the current usage, and git lfs push and git lfs pull to manually upload and download large files.\nUpdate the Folder Structure: In your existing folder structure, replace the references to large files (e.g., in the Data/, Figures/, and Tables/ folders) with placeholder files or symlinks that point to the actual large files managed by Git LFS.\n\nBy adopting this manuscript repository structure with Git LFS, you can streamline your research documentation, improve collaboration, and ensure the long-term preservation and accessibility of your scientific work.",
+    "crumbs": [
+      "MANUSCRIPT REPOSITORY",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Manuscript Repository</span>"
+    ]
+  },
+  {
+    "objectID": "content/odds_and_ends.html",
+    "href": "content/odds_and_ends.html",
+    "title": "6  Odds and Ends",
     "section": "",
-    "text": "5.1 Step 1. Make sure you have a recent RStudio\nHave you updated RStudio since about August 2022? No? Then update to a newer version of RStudio. In general, you want to keep RStudio updated and it is required to have a recent version to use Quarto.",
+    "text": "6.1 Odds and Ends",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Rendering</span>"
+      "ODDS AND ENDS",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Odds and Ends</span>"
     ]
   },
   {
-    "objectID": "content/rendering.html#step-2.-clone-and-create-rstudio-project",
-    "href": "content/rendering.html#step-2.-clone-and-create-rstudio-project",
-    "title": "5  Rendering",
-    "section": "5.2 Step 2. Clone and create RStudio project",
-    "text": "5.2 Step 2. Clone and create RStudio project\nFirst, clone the repo onto your local computer. How? You can click File &gt; New Project and then select “Version Control”. Paste in the url of the repository. That will clone the repo on to your local computer. When you make changes, you will need to push those up.",
+    "objectID": "content/odds_and_ends.html#streamlining-analytical-projects-with-organized-file-names",
+    "href": "content/odds_and_ends.html#streamlining-analytical-projects-with-organized-file-names",
+    "title": "6  Odds and Ends",
+    "section": "6.2 Streamlining Analytical Projects with Organized File Names",
+    "text": "6.2 Streamlining Analytical Projects with Organized File Names\nEffectively managing files for complex analyses requires a thoughtful naming convention. A well-structured naming system helps bring order to potentially chaotic situations, enabling team members to locate, comprehend, and collaborate on different aspects of the project. Let’s examine a powerful file naming pattern that can streamline your analytical workflows:\nsec[section_number][section_name]_step[step_number][step_description].qmd\nNow, let’s analyze the components of this naming pattern:",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Rendering</span>"
+      "ODDS AND ENDS",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Odds and Ends</span>"
     ]
   },
   {
-    "objectID": "content/rendering.html#step-3.-render-within-rstudio",
-    "href": "content/rendering.html#step-3.-render-within-rstudio",
-    "title": "5  Rendering",
-    "section": "5.3 Step 3. Render within RStudio",
-    "text": "5.3 Step 3. Render within RStudio\nRStudio will recognize that this is a Quarto project by the presence of the _quarto.yml file and will see the “Build” tab. Click the “Render website” button to render to the _site folder.\nPreviewing: You can either click index.html in the _site folder and specify “preview in browser” or set up RStudio to preview to the viewer panel. To do the latter, go to Tools &gt; Global Options &gt; R Markdown. Then select “Show output preview in: Viewer panel”.",
+    "objectID": "content/odds_and_ends.html#the-components-of-an-efficient-file-naming-convention",
+    "href": "content/odds_and_ends.html#the-components-of-an-efficient-file-naming-convention",
+    "title": "6  Odds and Ends",
+    "section": "6.3 The Components of an Efficient File Naming Convention",
+    "text": "6.3 The Components of an Efficient File Naming Convention\n\n6.3.1 Section Identifier: sec\nThe ‘sec’ prefix serves as a constant reminder that the file belongs to a larger section within the project. It establishes the file’s location in the hierarchy and prepares the groundwork for further identifying details.\n\n\n6.3.2 Section Number: [section_number]\nFollowing the ‘sec’ prefix, [section_number] represents the numerical identifier of the section. Typically zero-padded (e.g., 01, 02, 03), this number ensures correct sorting in file systems that arrange items lexicographically. Zero-padding becomes essential when there are more than nine sections, preventing the tenth section from appearing before the second one.\n\n\n6.3.3 Section Name: [section_name]\nAfter the section number, [section_name] provides a succinct yet descriptive label for the section. This could refer to a broader topic or a specific theme covered by the section. For instance, ‘data_preparation’ or ‘model_evaluation’ instantly conveys the subject matter of the section without opening the file.\n\n\n6.3.4 Step Identifier: step\nThe ‘step’ prefix functions similarly to ‘sec’, indicating that the file pertains to a specific step within the section. It signals to the reader that the file focuses on a particular task or subtopic.\n\n\n6.3.5 Step Number: [step_number]\nLike [section_number], [step_number] is zero-padded to preserve proper sorting. This number denotes the file’s sequence within the section, offering a clear arrangement of tasks or reading order.\n\n\n6.3.6 Step Description: [step_description]\nLastly, [step_description] is a placeholder for the specific action or topic addressed in the step. This part of the file name should be as informative as possible to summarize the file’s contents at a glance. Examples include ‘import_datasets’ or ‘train_regression_model’.",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Rendering</span>"
+      "ODDS AND ENDS",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Odds and Ends</span>"
     ]
   },
   {
-    "objectID": "content/rmarkdown.html",
-    "href": "content/rmarkdown.html",
-    "title": "6  R Markdown",
-    "section": "",
-    "text": "6.1 R Markdown\nThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.\nWhen you click the Knit button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:\nsummary(cars)\n\n     speed           dist       \n Min.   : 4.0   Min.   :  2.00  \n 1st Qu.:12.0   1st Qu.: 26.00  \n Median :15.0   Median : 36.00  \n Mean   :15.4   Mean   : 42.98  \n 3rd Qu.:19.0   3rd Qu.: 56.00  \n Max.   :25.0   Max.   :120.00",
+    "objectID": "content/odds_and_ends.html#example-application",
+    "href": "content/odds_and_ends.html#example-application",
+    "title": "6  Odds and Ends",
+    "section": "6.4 Example Application",
+    "text": "6.4 Example Application\nSuppose you’re working on a project involving multiple sections, each with several steps. Here’s how your files might appear using this naming convention:\nsec01_data_collection_step01_download_data.qmd\nsec01_data_collection_step02_clean_data.qmd\nsec02_feature_engineering_step01_select_features.qmd\nsec02_feature_engineering_step02_transform_variables.qmd\nIn this illustration, it’s evident that the first two files belong to the data collection section and deal with downloading and cleaning data, respectively. The subsequent two files are part of the feature engineering section, focusing on selecting features and transforming variables.",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>R Markdown</span>"
+      "ODDS AND ENDS",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Odds and Ends</span>"
     ]
   },
   {
-    "objectID": "content/rmarkdown.html#including-plots",
-    "href": "content/rmarkdown.html#including-plots",
-    "title": "6  R Markdown",
-    "section": "6.2 Including Plots",
-    "text": "6.2 Including Plots\nYou can also embed plots and reference them, like so Figure 6.1.\n\n\n\n\n\n\n\n\nFigure 6.1: Plot of pressure\n\n\n\n\n\nNote that the echo = FALSE parameter was added to the code chunk to prevent printing of the R code that generated the plot.",
+    "objectID": "content/odds_and_ends.html#conclusion",
+    "href": "content/odds_and_ends.html#conclusion",
+    "title": "6  Odds and Ends",
+    "section": "6.5 Conclusion",
+    "text": "6.5 Conclusion\nImplementing a structured naming convention like sec[section_number][section_name]_step[step_number][step_description].qmd can greatly simplify the management of complex analysis projects. By employing this pattern, you ensure that your files remain organized and self-explanatory, facilitating a smoother and more productive analytical process.",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>R Markdown</span>"
-    ]
-  },
-  {
-    "objectID": "content/rmarkdown.html#including-tables",
-    "href": "content/rmarkdown.html#including-tables",
-    "title": "6  R Markdown",
-    "section": "6.3 Including Tables",
-    "text": "6.3 Including Tables\nYou can also embed tables and reference them with Table 6.1.\n\nlibrary(knitr)\nkable(head(iris))\n\n\n\nTable 6.1: Iris Data\n\n\n\n\n\n\nSepal.Length\nSepal.Width\nPetal.Length\nPetal.Width\nSpecies\n\n\n\n\n5.1\n3.5\n1.4\n0.2\nsetosa\n\n\n4.9\n3.0\n1.4\n0.2\nsetosa\n\n\n4.7\n3.2\n1.3\n0.2\nsetosa\n\n\n4.6\n3.1\n1.5\n0.2\nsetosa\n\n\n5.0\n3.6\n1.4\n0.2\nsetosa\n\n\n5.4\n3.9\n1.7\n0.4\nsetosa",
-    "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>R Markdown</span>"
-    ]
-  },
-  {
-    "objectID": "content/code.html",
-    "href": "content/code.html",
-    "title": "7  Rendering with Code",
-    "section": "",
-    "text": "7.1 Modify the GitHub Action\nYou will need to change the GitHub Action in .github/workflows to install these and any needed packages in order for GitHub to be able to render your webpage. The GitHub Action install R since I used that in code.qmd. If you use Python or Julia instead, then you will need to update the GitHub Action to install those.\nIf getting the GitHub Action to work is too much hassle (and that definitely happens), you can alway render locally and publish to the gh-pages branch. If you do this, make sure to delete or rename the GitHub Action to something like\nso GitHub does not keep trying to run it. Nothing bad will happen if you don’t do this, but if you are not using the action (because it keeps failing), then you don’t need GitHub to run it.",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Rendering with Code</span>"
-    ]
-  },
-  {
-    "objectID": "content/code.html#modify-the-github-action",
-    "href": "content/code.html#modify-the-github-action",
-    "title": "7  Rendering with Code",
-    "section": "",
-    "text": "render-and-publish.old_yml",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Rendering with Code</span>"
-    ]
-  },
-  {
-    "objectID": "content/code.html#render-locally-and-publish-to-gh-pages-branch",
-    "href": "content/code.html#render-locally-and-publish-to-gh-pages-branch",
-    "title": "7  Rendering with Code",
-    "section": "7.2 Render locally and publish to gh-pages branch",
-    "text": "7.2 Render locally and publish to gh-pages branch\nTo render locally and push up to the gh-pages branch, open a terminal window and then cd to the directory with the Quarto project. Type this in the terminal:\nquarto render gh-pages",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Rendering with Code</span>"
-    ]
-  },
-  {
-    "objectID": "content/adding-refs.html",
-    "href": "content/adding-refs.html",
-    "title": "8  References",
-    "section": "",
-    "text": "Quarto has powerful references functionality. You can easily insert citations from Zotero libraries that you maintain in the cloud (on Zotero). This allows the whole team to update the library and you can sync up to that library. Read about this on the Quarto documentation on citations. Google youtube videos on this also to see it in action.\nAdd a .bib file in to your project or add a linked Zotero library via RStudio in Visual mode with Tools &gt; Project Options… &gt; R Markdown &gt; select custom libraries from the Zotero dropdown.\nThe you can type @ and you will see a dropdown of the references in your libraries. You can then select the ones to add. If you don’t see the one you need, you can paste in the DOI and it will be added to your references file (with all the info). The references will be added to your references section of your book automatically.\nSee the references.qmd file for how to include the references.\n\n@ansley1981 will produce Ansley and Davis (1981)\n[@ansley1981] will produce (Ansley and Davis 1981).\n\n\n\n\n\nAnsley, H. L. H., and C. D. Davis. 1981. “Migration and Standing Stock of Fishes Associated with Artificial and Natural Reefs on Georgia’s Outer Continental Shelf.” Brunswick, Georgia, USA.",
-    "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>References</span>"
-    ]
-  },
-  {
-    "objectID": "content/references.html",
-    "href": "content/references.html",
-    "title": "References",
-    "section": "",
-    "text": "Ansley, H. L. H., and C. D. Davis. 1981. “Migration and Standing\nStock of Fishes Associated with Artificial and Natural Reefs on\nGeorgia’s Outer Continental Shelf.” Brunswick,\nGeorgia, USA.",
-    "crumbs": [
-      "References"
+      "ODDS AND ENDS",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Odds and Ends</span>"
     ]
   }
 ]
