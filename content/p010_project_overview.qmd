@@ -1,5 +1,5 @@
 ---
-title: Customization
+title: Project Overview
 ---
 
 ## Assessing Cortical Excitability Using Resting-State EEG
@@ -12,7 +12,11 @@ In this analysis, we will use FOOOF to compare cortical excitability, as measure
 
 ### Methods Overview
 1. [`p050_setup_environment`](): Set up the analysis environment
-2. [`p100_load_data_catalog`](): Retrieve file list and associated metadata
+2. [`p100_load_data_catalog`](): Organize datasets
+3. [`p150_preprocess_data`](): Preprocess the data
+4. [`p200_extract_features`](): Extract features
+5. [`p300_compare_features`](): Compare features
+6. [`p400_visualize_results`](): Visualize results
 
 
 - Preprocess the resting state EEG data, including filtering, artifact rejection, and channel selection.

@@ -1,0 +1,70 @@
+---
+title: Asynchronous Processing
+---
+## Overview
+
+Managing and processing electroencephalography (EEG) recordings can be challenging, especially when dealing with large datasets. In this chapter, we'll introduce a Python code snippet that simplifies the process of performing parallel signal processing on multiple EEG files and compiling the results into a single, easy-to-understand format.
+
+## The Code
+
+Our code consists of two main functions: `process_file` and `process_files`.
+
+```python
+async def process_file(filename):
+    # Perform your actual file processing logic here
+    # For example, you can read the file, extract data, or perform computations
+    # Return the processed result as a dictionary representing a row of data
+    result = get_amplitude_statistics(filename, 'EEGLAB_RAW_SET')
+
+    return result
+```
+
+The `process_file` function takes a filename as input and performs the necessary signal processing on the EEG data. It uses the `get_amplitude_statistics` function from the `signalfloweeg.io` module to extract important features from the EEG signals. The result is returned as a dictionary containing the filename and the processed data.
+
+```python
+async def process_files(df):
+    # Create a list of tasks
+    # Each task is a call to process_file with a filename
+    tasks = []
+    for _, row in df.iterrows():
+        filename = row['FullFile']
+        task = asyncio.create_task(process_file(filename))
+        tasks.append(task)
+    results = await asyncio.gather(*tasks)
+    result_df = pd.DataFrame(results)
+    return result_df
+```
+
+The `process_files` function takes a dataframe `df` as input. It iterates over each row in the dataframe and creates a task for each filename using the `process_file` function. The results from all the tasks are gathered and combined into a dataframe called `result_df`. Finally, the dataframe is returned.
+
+## Putting It All Together
+
+Now, let's see how we can use this code to process multiple EEG files and compile the results:
+
+```python
+# Load the filelist
+filelist = pd.read_csv(path.join(analysispath, 'data/01_sprest_filelist.csv'))
+
+df = filelist
+
+# Apply the nest_asyncio patch to allow asyncio usage in Jupyter Notebook
+nest_asyncio.apply()
+
+# Run the file processing asynchronously and get the result DataFrame
+presource_df = await process_files(df)
+print("Final Result DataFrame:")
+print(presource_df)
+
+# Save the filelist
+presource_df.to_csv(path.join(analysispath, 'data/02_sprest_filelist_amplitudes.csv'), index=False)
+```
+
+First, we load the filelist from a CSV file and assign it to the variable `filelist`. We then convert it into a dataframe called `df`. To enable asynchronous processing in Jupyter Notebook, we apply the `nest_asyncio.apply()` function.
+
+Using the `process_files` function, we process all the EEG files listed in the dataframe and store the results in a new dataframe named `presource_df`. Finally, we save the processed data in another CSV file.
+
+## Conclusion
+
+In this chapter, we explored a Python code snippet that simplifies the process of performing signal processing on multiple EEG files and compiling the results into a single, easy-to-understand format. We learned about the importance of functions and dataframes in managing and analyzing neuroscience data. By following this code, we were able to process multiple EEG files simultaneously and create a valuable resource for further analysis.
+
+As a neuroscientist, understanding the underlying principles of this code can help you manage your data more efficiently and focus on the scientific aspects of your research. So, the next time you find yourself overwhelmed by the complexity of data processing, remember this simplifying code and let the magic unfold!

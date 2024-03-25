@@ -8,3 +8,6 @@
 /.quarto/
 /_site/
 /_book/
+*.mp4
+*.svg
+*.pyc

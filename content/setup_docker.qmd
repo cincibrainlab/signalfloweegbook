@@ -1,0 +1,177 @@
+---
+title: Reproducible Environment with Docker
+---
+
+## "Operating System in a Box"
+
+Using a Docker container is a compelling option for creating a reproducible analysis environment. Docker containers provide a self-contained, portable "operating system in a box" that can be deployed on any machine with Docker installed, whether it's your local computer or a remote server. By using a consistent Linux-based Docker container, your setup scripts can be used across different platforms, ensuring your analysis environment is consistent and reproducible.
+
+Working within a container has become much easier with the introduction of [Visual Studio Code](https://code.visualstudio.com/). VS Code is a free and open-source editor that supports development in most of the popular programming languages including Python. It also has a built-in terminal and can be used to run Docker containers.
+
+## Graphical Desktop in Docker
+Docker containers can run a full graphical desktop interface that can be easily accessed via a web browser. This is particularly useful for running Jupyter notebooks and other web-based applications. Several well-supported graphical containers are available for neuroscience, such as `signalflow-stacks`, `neurodesk`, and 'Jupyter Stacks'.
+More complex docker containers can run a full graphical desktop interface that can be easily accessed via a web browser. This is particularly useful for running Jupyter notebooks and other web-based applications. 
+
+Several well-supported graphical containers are available for neuroscience:
+
+1. [`signalflow-stacks`](https://github.com/cincibrainlab/signalflow-stacks) MATLAB, Python, and R with Jupyter notebook support.
+2. [`neurodesk`](https://www.neurodesk.org/) A web-based desktop for neuroscience.
+3. ['Jupyter Stacks'](https://jupyter-docker-stacks.readthedocs.io/en/latest/index.html) A collection of Docker images for Jupyter notebook, R, and Python.
+
+For more information on Docker, including installation instructions, visit the [Docker documentation](https://docs.docker.com/get-docker/). Mac users can also refer to the [Orbstack documentation](https://orbstack.dev/). 
+
+## Custom SignalFlowEeg Docker Container
+
+We have created a custom Docker container to simplify the setup process and ensure a smooth workflow. This Docker container is built upon the `quay.io/jupyter/datascience-notebook` image, a widely-used base for data science and scientific computing. We've carefully curated and added the specific packages and libraries required for our signal analysis work, eliminating the need for you to worry about the intricate details of setting up your development environment.
+
+In addition to the Python environment, we've also included several essential packages:
+
+1. **MNE**: This powerful Python package for processing and analyzing MEG and EEG data is a crucial tool in our arsenal.
+
+2. **SignalFlowEeg**: Our custom-developed Python package for signal analysis is pre-installed, allowing you to seamlessly integrate it into your workflow.
+
+3. **FOOOF**: The FOOOF package, which enables us to analyze the power spectrum of our electrophysiological data, is another essential component we've included.
+
+4. **Quarto**: To streamline the creation of dynamic reports and visualizations, we've set up Quarto, a versatile open-source tool, within the container.
+
+5. **Visual Studio Code**: For a familiar and efficient coding experience, we've installed Visual Studio Code and configured it to run with the `--no-sandbox` flag, addressing any potential issues that may arise in a containerized environment.
+
+By using this custom Docker container, you can focus on your research without the hassle of setting up a complex development environment from scratch. Everything is pre-installed and configured, ensuring a consistent and reproducible analysis environment.
+
+To get started, simply follow the instructions in the [`p040_run_docker_ubuntu22.sh`](https://github.com/cincibrainlab/cbl_spectparm_fxsrest/blob/main/p040_run_docker_ubuntu22.sh) script. If you have any questions or encounter any issues, don't hesitate to reach out to the team. We're here to support you throughout this process and ensure you have a smooth and productive experience.
+
+## Example: Running a Jupyter Notebook in a Docker Container
+
+### Understanding Docker Run Command Options
+
+Docker is a powerful platform for developing, shipping, and running applications inside containers. The `docker run` command below can create a new reproducible analysis workspace.
+
+```bash
+docker run \                                  # Run a new container
+  -v /Users/ernie/Documents/GitHub/cbl_spectparm_fxsrest:/srv \  # Mount a volume from host to container
+  -e DISPLAY="host.docker.internal:0" \       # Set DISPLAY environment variable for X11 forwarding
+  -e GRANT_SUDO=yes \                         # Allow sudo command within the container
+  --user root \                               # Run as root user
+  -it \                                       # Interactive terminal
+  --rm \                                      # Remove container on exit
+  --name dev-ubuntu \                         # Name the container 'dev-ubuntu'
+  quay.io/jupyter/datascience-notebook:latest \  # Use the 'datascience-notebook' image from quay.io
+  /bin/bash                                   # Start a Bash shell
+```
+Let's break down the different parts of a complex `docker run` command to understand what each option does.
+
+#### The Base Command
+
+```bash
+docker run
+```
+
+This is the base command that tells Docker to run a new container.
+
+#### Volume Mounting
+
+```bash
+-v /Users/ernie/Documents/GitHub/cbl_spectparm_fxsrest:/srv
+```
+
+The `-v` flag mounts a volume. It maps a directory from the host (`/Users/ernie/Documents/GitHub/cbl_spectparm_fxsrest`) into the container (`/srv`). This allows for data to be persisted and shared between the host and the container. In this case, it is pointing to my analysis code repository.
+
+#### Environment Variables
+
+```bash
+-e DISPLAY="host.docker.internal:0"
+-e GRANT_SUDO=yes
+```
+
+The `-e` flag sets environment variables inside the container. Here, `DISPLAY` is set to `host.docker.internal:0`, which is typically used for X11 forwarding to allow GUI applications to display on the host (see below). 
+
+`GRANT_SUDO` is set to `yes` to allow the `sudo` command within the container. This is a specific option for the `quay.io/jupyter/datascience-notebook` image which allows the default user to be given admin privileges. 
+
+#### User Configuration
+
+```bash
+--user root
+```
+
+The `--user` option specifies which user the container should run as. In this case, it's set to `root`, to temporarly allow the container at start up to assign [admin privledges](https://jupyter-docker-stacks.readthedocs.io/en/latest/using/common.html) to the default user as specified in the documentation. 
+
+#### Interactive Terminal
+
+```bash
+-it
+```
+
+The `-it` flags are shorthand for `--interactive` and `--tty`. This combination allows you to interact with the container via a terminal interface.
+
+#### Container Cleanup
+
+```bash
+--rm
+```
+
+The `--rm` flag tells Docker to automatically remove the container when it exits. This is useful for not leaving behind any stopped containers, keeping your system clean.
+
+#### Container Naming
+
+```bash
+--name dev-ubuntu
+```
+
+The `--name` option assigns a name to the container, making it easier to reference. In this case, the container is named `dev-ubuntu`.
+
+#### Docker Image
+
+```bash
+quay.io/jupyter/datascience-notebook:latest
+```
+
+This specifies the Docker image to use for the container. The image is hosted on `quay.io`, and it's the `datascience-notebook` repository with the `latest` tag, indicating the most recent version.
+
+#### Command Override
+
+```bash
+/bin/bash
+```
+
+Finally, `/bin/bash` is the command that will be run inside the container once it starts. This overrides the default command specified in the Docker image, and in this case, it will start a Bash shell.
+
+#### Full Command Breakdown
+
+Here's the full `docker run` command with each part explained:
+
+```bash
+docker run \                                  # Run a new container
+  -v /Users/ernie/Documents/GitHub/cbl_spectparm_fxsrest:/srv \  # Mount a volume from host to container
+  -e DISPLAY="host.docker.internal:0" \       # Set DISPLAY environment variable for X11 forwarding
+  -e GRANT_SUDO=yes \                         # Allow sudo command within the container
+  --user root \                               # Run as root user
+  -it \                                       # Interactive terminal
+  --rm \                                      # Remove container on exit
+  --name dev-ubuntu \                         # Name the container 'dev-ubuntu'
+  quay.io/jupyter/datascience-notebook:latest \  # Use the 'datascience-notebook' image from quay.io
+  /bin/bash                                   # Start a Bash shell
+```
+
+Understanding each part of the `docker run` command is crucial for managing Docker containers effectively. With this knowledge, you can customize your Docker containers to fit your development needs perfectly.
+
+
+## Using an X-server on your Local Machine
+
+A common use case for Docker is to run a graphical application with an X-server. This is done by running the Docker container with the `-e DISPLAY` flag. This flag tells the container to use the X-server on the host machine. This allows the container to display the graphical applications on the host machine.
+
+If you have an Mac, you can use the [XQuartz](https://www.xquartz.org/) X11 server. XQuartz is a free X11 server that allows the Docker container to display the graphical interface on the Mac. Before troubleshooting, make sure your X11 preferences are set to allow connections from network clients and turn off "Authenticate connections". On my system I only had to make one addition to my `docker run` command to run GUI applications and figures from my container:
+
+```bash
+  -e DISPLAY="host.docker.internal:0" \
+  ```
+
+## Frequently Asked Questions
+### How do I access my data in my container?
+
+This is a common question. The best way to access your data in your container is to use a volume mount. A volume mount is a mechanism to allow a container to access a directory on the host machine. This is done by specifying a `-v` flag in the `docker run` command. Any data saved within the container on the mounted volume will be saved on the host machine even after the container is stopped.
+
+```bash
+# Start a new Ubuntu 22.04 Docker container in interactive mode
+# Local folder is mapped to a folder within the container
+docker run -v /local_folder:/container_folder -it --name dev-ubuntu ubuntu:22.04 /bin/bash`
+```

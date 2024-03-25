@@ -1,0 +1,90 @@
+---
+title: Setting up the Analysis Environment
+---
+
+## Cortical Excitability: Setting up the Analysis Environment
+
+### Overview
+
+This tutorial will walk you through setting up the analysis environment for this project. 
+
+Tasks to Complete:
+1. Install: Python
+2. Install: MNE
+3. Install: SignalFlowEeg
+4. Install: FOOOF
+
+We have outlined these steps in a single code file [`p050_setup_environment`](https://github.com/cincibrainlab/cbl_spectparm_fxsrest/blob/main/p050_setup_environment.sh).
+
+### Install Python
+
+There are many ways to install Python which makes the process even more challenging. Since we will be using MNE, I recommend for beginners installing Python per the MNE teams [instructions](https://mne.tools/stable/install/index.html).
+
+For advanced users or those who want to learn how to setup a custom python environment, we have included our approach using [`pyenv`](https://github.com/pyenv/pyenv). This guide is optimized for Mac/Unix and Windows Subsystem for Linux. 
+
+### Setting up a Python Environment with `pyenv`
+
+1. **Homebrew**: The easiest way to install `pyenv` is via [Homebrew](https://brew.sh/). Make sure to follow the instructions following install to have the `brew` command available.
+
+2. **Pyenv**: Follow the [instructions](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation) to install `pyenv` via Homebrew.
+
+3. **Pyenv-Virtualenv**: We will be using [`pyenv-virtualenv`](https://github.com/pyenv/pyenv-virtualenv) to create isolated python environments. Install via Homebrew.
+
+4. **Python**: Pyenv can install and manage multiple versions of Python. We are following recommendations by the MNE team to start with a conda distribution with Python 3.11. MNE has a preference for using conda environments. 
+
+5. **MNE**: MNE is a Python package for processing and analyzing MEG and EEG data. It is a powerful tool for analyzing electrophysiological data. 
+
+6. **SignalFlowEeg**: SignalFlowEeg is a Python package for processing and analyzing MEG and EEG data. It is a powerful tool for analyzing electrophysiological data. 
+
+7. **FOOOF**: FOOOF is a Python package for analyzing the power spectrum of electrophysiological data. It is a powerful tool for analyzing electrophysiological data. 
+
+### Setting up SignalFlowEeg
+
+Use the following command to install `signalfloweeg` directly from its [GitHub repository](https://github.com/cincibrainlab/signalfloweeg_py). This command will clone the repository and install the package in editable mode, which means you can update the package by pulling changes from the repository.
+
+   ```bash
+   pip install -e git+https://github.com/cincibrainlab/signalfloweeg_py.git#egg=signalfloweeg --src /home/username/src/signalfloweeg_dev
+   ```
+
+   Here's what each part of the command does:
+   - `pip`: This specifies the `pip` executable within the Conda environment you created.
+   - `install -e`: The `-e` flag installs the package in "editable" mode.
+   - `git+https://github.com/cincibrainlab/signalfloweeg_py.git`: This is the Git URL of the `signalfloweeg` repository.
+   - `#egg=signalfloweeg`: This tells `pip` the name of the package to install.
+   - `--src /home/username/src/signalfloweeg_dev`: This specifies the source directory where the package will be cloned.
+
+**Import the Package**:
+
+In your Python script or Jupyter notebook, import `signalfloweeg`:
+
+   ```python
+   import signalfloweeg
+   ```
+
+
+Citations:
+[1] https://github.com/cincibrainlab/signalfloweeg_py.git
+[2] https://docs.python.org/3/using/windows.html
+[3] https://phoenixnap.com/kb/how-to-install-python-3-windows
+[4] https://stackoverflow.com/questions/33876657/how-to-install-python-any-version-in-windows-when-youve-no-admin-privileges
+[5] https://builtin.com/software-engineering-perspectives/how-to-install-python-on-windows
+
+
+
+
+```bash
+brew install pyenv
+```
+
+
+1. [`p050_setup_environment`](): Set up the analysis environment
+2. [`p100_load_data_catalog`](): Retrieve file list and associated metadata
+
+
+- Preprocess the resting state EEG data, including filtering, artifact rejection, and channel selection.
+- Apply the FOOOF algorithm to the preprocessed, source localized data to extract the aperiodic and oscillatory components of the power spectrum for each participant.
+- Compare the aperiodic component between the FXS and control groups using appropriate statistical tests, such as t-tests or non-parametric tests, depending on the distribution of the data.
+
+
+
+

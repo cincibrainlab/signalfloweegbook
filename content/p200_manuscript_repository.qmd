@@ -1,0 +1,107 @@
+---
+title: Manuscript Repository
+---
+
+## Organizing a Comprehensive Manuscript Repository
+
+When working on multiple scientific research projects, managing the various components of your manuscripts can quickly become a complex task. From the manuscript text itself to the associated code, datasets, figures, and submission materials, keeping everything organized and version-controlled is crucial for efficient collaboration and successful publication.
+
+In this chapter, we'll explore a robust folder structure that organizes your manuscript repository around the individual research projects, making it easier to navigate and manage your scientific work.
+
+## The Manuscript-Centric Repository Structure
+
+The proposed manuscript repository structure consists of a top-level folder, `Manuscript_Repository/`, which houses individual folders for each of your research manuscripts. This manuscript-centric approach ensures that all the necessary files and materials for a given project are kept together, providing a clear and intuitive organization.
+
+Within each manuscript folder, you'll find the following subfolders:
+
+1. **v[version number]/**:
+   - This version-specific subfolder contains all the files related to a particular iteration of the manuscript, including the manuscript text, code, data, figures, tables, and submission materials.
+   - The version number allows you to easily track and manage the evolution of your manuscript over time.
+
+2. **Code/**:
+   - This folder stores the scripts, notebooks, and other code files associated with the research and analysis for the manuscript.
+
+3. **Data/**:
+   - The raw and processed data files used in the manuscript are organized in the `raw/` and `processed/` subfolders, respectively.
+
+4. **Figures/**:
+   - All the figures, images, and visualizations referenced in the manuscript are kept in this folder.
+
+5. **Tables/**:
+   - Tabular data, such as Excel or CSV files, that are included in the manuscript are stored here.
+
+6. **Submission/**:
+   - This folder contains any files related to the manuscript submission process, such as the cover letter, data usage agreements, or author statements.
+
+By adopting this manuscript-centric folder structure, you can easily navigate and manage your research projects, ensuring that all the necessary components for a given manuscript are easily accessible and organized.
+
+# Suggested Optional Folders
+
+These are optional folders that you can incorporate into your manuscript repository, allowing you to tailor the structure to your specific needs and research workflow. The number and organization of these folders are based on the collective experience of managing multiple scientific manuscripts.
+
+For example, if you're not working on multiple manuscripts concurrently, you may not need the top-level "Manuscripts/" folder and can instead organize your files directly within the repository. Similarly, if you don't have a significant number of supporting materials, you may not require folders like "Ideas/", "Meetings/", or "Presentations/". The key is to tailor the folder structure to your specific requirements and standard names, ensuring that your manuscript repository remains well-organized, comprehensive, and easy to navigate.
+
+1. **Ideas/**: This folder captures the initial research ideas, project proposals, and early brainstorming materials that eventually lead to the manuscript.
+
+2. **Literature/**: This folder contains relevant research papers, literature reviews, and other sources that inform the manuscript.
+
+3. **Manuscripts/**: The core of the repository, this folder houses the individual manuscript projects, each with its own version-specific subfolders.
+
+4. **Meetings/**: This folder stores notes, agendas, and action items from meetings related to the manuscript development.
+
+5. **Drafts/**: Earlier versions of the manuscript drafts are kept in this folder, allowing you to track the evolution of the writing.
+
+6. **Reviews/**: Peer review comments, editor feedback, and response materials are organized in this folder.
+
+7. **Presentations/**: Any presentations (e.g., conference talks, lab meetings) related to the research are stored here.
+
+8. **Protocols/**: This folder holds detailed experimental protocols, data collection methods, and other documentation related to the research.
+
+9. **Licenses/**: Data use agreements, material transfer forms, and other relevant licenses are kept in this folder.
+
+10. **Templates/**: Standardized document templates, such as manuscript formatting and cover letter templates, are stored here.
+
+11. **Archive/**: As the manuscript progresses through the publication process, older versions, rejected drafts, and other materials no longer actively used are moved to the archive folder.
+
+## Leveraging Git for Manuscript Versioning and Collaboration
+
+As a researcher, you can utilize version control systems like Git to manage the evolution of your scientific manuscripts. Even if you're new to using code repositories, Git can provide valuable benefits for your manuscript workflow.
+
+### Understanding Git's Capabilities
+Git is a distributed version control system that allows you to track changes to your files, collaborate with others, and maintain a comprehensive history of your project. Its features can be highly beneficial for managing your manuscript repository.
+
+### Getting Started with Git
+To use Git for your manuscripts, you'll first need to set up a Git repository in your project folder. This is as simple as running the `git init` command in your manuscript directory.
+
+### Tracking Changes and Revisions
+With Git, you can easily track changes to your manuscript files. Use `git add` to stage your changes, and `git commit` to save snapshots of your work with descriptive messages.
+
+### Collaborating with Git
+Git facilitates collaboration by allowing you to share your repository with team members. They can then clone the repository, make changes, and push their updates, which Git will merge seamlessly.
+
+### Essential Git Commands
+As you continue using Git, familiarize yourself with commands like `git status`, `git log`, `git pull`, and `git push` to streamline your manuscript versioning and collaboration workflows.
+
+By incorporating Git into your manuscript management process, you can benefit from increased version control, improved collaboration, and better traceability of your research work. Don't be intimidated – the basic Git concepts are easy to learn and can have a significant positive impact on how you manage your scientific manuscripts.
+
+## Incorporating Git LFS
+
+To effectively manage large files, such as data, figures, and other binary assets, the repository utilizes Git LFS (Large File Storage). This allows you to seamlessly track and version control these large files alongside the manuscript text and other supporting materials.
+
+By initializing Git LFS in the repository and specifying the file types to be managed by it, you can ensure that your manuscript project remains lightweight and performant, while still maintaining a comprehensive version history and collaboration capabilities.
+
+Git LFS is separate software from Git. Prior to running the commands below first visit [Git LFS](https://git-lfs.com/) and follow the install instructions. 
+
+The process of incorporating Git LFS into your manuscript repository involves the following steps:
+
+1. **Initialize Git LFS**: In the top-level `Manuscript_Repository/` folder, run the command `git lfs install` to set up the Git LFS extension in your local repository.
+2. **Track Large File Types**: Decide which file types in your repository should be managed by Git LFS, such as `.csv`, `.rdata`, `.png`, `.tiff`, and `.eps`. Add these file types to the Git LFS tracking using the command `git lfs track "*.csv" "*.rdata" "*.png" "*.tiff" "*.eps"`.
+`git lfs track "*.ai" "*.doc" "*.docx"` 
+
+3. **Commit the .gitattributes File**: Git LFS uses a `.gitattributes` file to track the file types you specified. Commit this file to your repository with `git add .gitattributes` and `git commit -m "Initialize Git LFS tracking"`.
+4. **Add Large Files to the Repository**: As you add large files to your repository, Git LFS will automatically manage them. For example, when adding a large data file, use `git add Data/Experiment1/raw/participant_data.csv` and `git commit -m "Add raw experiment data"`.
+5. **Manage Large File Storage**: Git LFS provides commands to manage the storage of large files, such as `git lfs env` to view the current usage, and `git lfs push` and `git lfs pull` to manually upload and download large files.
+6. **Update the Folder Structure**: In your existing folder structure, replace the references to large files (e.g., in the `Data/`, `Figures/`, and `Tables/` folders) with placeholder files or symlinks that point to the actual large files managed by Git LFS.
+
+By adopting this manuscript repository structure with Git LFS, you can streamline your research documentation, improve collaboration, and ensure the long-term preservation and accessibility of your scientific work.
+

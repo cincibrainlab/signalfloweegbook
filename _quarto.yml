@@ -15,18 +15,22 @@ book:
       affiliations:
         - name: Cincinnati Children's Hospital Medical Center
           department: Neurobehavioral Research Laboratory
-
   chapters:
     - index.qmd
-    - content/setup.qmd
-    - content/add-content.qmd
-    - content/customizing.qmd
-    - content/resting_state.qmd    
-    - content/rendering.qmd
-    - content/rmarkdown.Rmd
-    - content/code.qmd
-    - content/adding-refs.qmd
-    - content/references.qmd
+    - part: "CORTICAL EXCITABILITY"
+      chapters:
+        - content/p010_project_overview.qmd
+        - content/p050_setup_environment.qmd
+        - content/p100_load_catalog.qmd
+        #- content/p200_preprocess_data.qmd
+        - content/setup_docker.qmd
+    - part: "MANUSCRIPT REPOSITORY"
+      chapters:
+        - content/p200_manuscript_repository.qmd
+    - part: "ODDS AND ENDS"
+      chapters:
+        - content/odds_and_ends.qmd
+
 
   page-footer:
     right: "This page is built with [Quarto](https://quarto.org/)."
